@@ -1,0 +1,26 @@
+{
+    "id": "7A0FB0CC",
+    "path": "~/R Scripts/SignacSlim/R/fragments.R",
+    "project_path": "R/fragments.R",
+    "type": "r_source",
+    "hash": "2316508974",
+    "contents": "",
+    "dirty": false,
+    "created": 1647916245718.0,
+    "source_on_save": false,
+    "relative_order": 7,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "177,28",
+        "scrollLine": "163"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1647913844,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1647913844,
+    "read_only": false,
+    "read_only_alternatives": []
+}

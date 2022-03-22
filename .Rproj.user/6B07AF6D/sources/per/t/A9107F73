@@ -1,0 +1,26 @@
+{
+    "id": "A9107F73",
+    "path": "~/R Scripts/SignacSlim/R/utilities.R",
+    "project_path": "R/utilities.R",
+    "type": "r_source",
+    "hash": "3897899409",
+    "contents": "",
+    "dirty": false,
+    "created": 1647915138990.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "564,50",
+        "scrollLine": "551"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1647915186,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1647915186689,
+    "read_only": false,
+    "read_only_alternatives": []
+}

@@ -1,0 +1,36 @@
+---
+title: "SignacSlim Introduction"
+author: "Wei Zhang"
+date: "`r Sys.Date()`"
+output:
+  prettydoc::html_pretty:
+    theme: architect
+  pdf_document:
+    toc: true
+
+vignette: >
+  %\VignetteIndexEntry{SignacSlim Introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}
+
+
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
+```
+
+# SignacSlim Introduction
+
+This package contains the basic classes and methods from SeuratObject, Seurat and Signac. This package aims to provide upstream functions for developing the scATAC-seq algorithm.
+
+For more information, please see [Signac](https://satijalab.org/signac/)
+
+
+# Session Info
+
+```{r}
+sessionInfo()
+```

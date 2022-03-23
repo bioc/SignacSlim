@@ -3,6 +3,7 @@
 #' @param group.by Identity class to group cells by
 #' @param idents which identities to include
 #' @importFrom SeuratObject Idents
+#' @importFrom RcppEigen RcppEigen.package.skeleton
 #' @return Returns a named vector
 GetGroups <- function(
         object,
@@ -76,6 +77,8 @@ GetFragmentData <- function(object, slot = "path") {
 #' @importMethodsFrom GenomicRanges intersect
 #' @importFrom Rsamtools TabixFile seqnamesTabix
 #' @importFrom fastmatch fmatch
+#'
+#' @return SingleFeatureMatrix
 #'
 SingleFeatureMatrix <- function(
         fragment,
@@ -202,6 +205,7 @@ StringToGRanges <- function(regions, sep = c("-", "-"), ...) {
 
 #' Check if path is remote
 #' @param x path/s to check
+#' @return path
 isRemote <- function(x) {
     return(grepl(pattern = "^http|^ftp", x = x))
 }
@@ -322,11 +326,8 @@ PartialMatrix <- function(tabix, regions, sep = c("-", "-"), cells = NULL) {
 #' @concept utilities
 #' @return Returns a list
 #' @examples
-#' \dontrun{
-#' fpath <- system.file("extdata", "fragments.tsv.gz", package="Signac")
+#' fpath <- system.file("extdata", "fragments.tsv.gz", package="SignacSlim")
 #' GetCellsInRegion(tabix = fpath, region = "chr1-10245-762629")
-#' }
-#'
 GetCellsInRegion <- function(tabix, region, cells = NULL) {
     if (!is(object = region, class2 = "GRanges")) {
         region <- StringToGRanges(regions = region)
@@ -359,6 +360,8 @@ GetCellsInRegion <- function(tabix, region, cells = NULL) {
 #' @return Returns a character vector
 #' @export
 #' @concept utilities
+#' @examples
+#' print("see https://satijalab.org/signac/reference/grangestostring")
 GRangesToString <- function(grange, sep = c("-", "-")) {
     regions <- paste0(
         as.character(x = seqnames(x = grange)),
@@ -426,7 +429,8 @@ ExtractCell <- function(x) {
 #' @concept preprocessing
 #' @importFrom hdf5r H5File existsGroup
 #' @importFrom Matrix sparseMatrix
-#'
+#' @examples
+#' print("see https://satijalab.org/seurat/reference/read10x_h5")
 Read10X_h5 <- function(filename, use.names = TRUE, unique.features = TRUE) {
     if (!requireNamespace('hdf5r', quietly = TRUE)) {
         stop("Please install hdf5r to read HDF5 files")
@@ -507,11 +511,14 @@ Read10X_h5 <- function(filename, use.names = TRUE, unique.features = TRUE) {
 #' @param standard.chromosomes Keep only standard chromosomes
 #' @param biotypes Biotypes to keep
 #' @param verbose Display messages
+#' @return GRanges
 #'
 #' @importFrom GenomeInfoDb keepStandardChromosomes seqinfo
 #' @importFrom biovizBase crunch
 #' @concept utilities
 #' @export
+#' @examples
+#' print("see https://satijalab.org/signac/reference/getgrangesfromensdb")
 GetGRangesFromEnsDb <- function(
         ensdb,
         standard.chromosomes = TRUE,
@@ -641,10 +648,15 @@ ExtractFragments <- function(fragments, n = NULL, verbose = TRUE) {
 #' @param ranges A GRanges object containing gene annotations.
 #' @param biotypes Gene biotypes to include. If NULL, use all biotypes in the
 #' supplied gene annotation.
+#'
+#' @return transcriptional start sites
+#'
 #' @importFrom GenomicRanges resize
 #' @importFrom S4Vectors mcols
 #' @export
 #' @concept utilities
+#' @examples
+#' print("see https://satijalab.org/signac/reference/gettsspositions")
 GetTSSPositions <- function(ranges, biotypes = "protein_coding") {
     if (!("gene_biotype" %in% colnames(x = mcols(x = ranges)))) {
         stop("Gene annotation does not contain gene_biotype information")
@@ -711,8 +723,8 @@ CollapseToLongestTranscript <- function(ranges) {
 #' @concept utilities
 #' @return Returns a \code{\link[GenomicRanges]{GRanges}} object
 #' @examples
-#' \dontrun{
-#' Extend(x = blacklist_hg19, upstream = 100, downstream = 100)
+#' if(FALSE){
+#'     Extend(x = blacklist_hg19, upstream = 100, downstream = 100)
 #' }
 #'
 Extend <- function(
@@ -759,6 +771,9 @@ Extend <- function(
 #' @param assay Name of the assay to use
 #' @param cells Which cells to include. If NULL, use all cells
 #' @param verbose Display messages
+#'
+#' @return cut site pileup matrix
+#'
 #' @importMethodsFrom GenomicRanges strand
 CreateRegionPileupMatrix <- function(
         object,

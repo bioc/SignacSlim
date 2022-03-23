@@ -7,7 +7,8 @@
 #'
 #' @rdname GetAssay
 #' @export GetAssay
-#'
+#' @examples
+#' print("see https://satijalab.org/signac/articles/data_structures.html")
 GetAssay <- function(object, ...) {
     UseMethod(generic = 'GetAssay', object = object)
 }
@@ -22,8 +23,11 @@ GetAssay <- function(object, ...) {
 #'
 #' @param object A Seurat object or ChromatinAssay object
 #' @param ... Additional arguments passed to other methods
+#' @return genome tiles
 #' @export AggregateTiles
 #' @rdname AggregateTiles
+#' @examples
+#' print("see https://satijalab.org/signac/reference/aggregatetiles")
 AggregateTiles <- function(object, ...) {
     UseMethod(generic = "AggregateTiles", object = object)
 }
@@ -31,8 +35,11 @@ AggregateTiles <- function(object, ...) {
 #' Convert objects to a ChromatinAssay
 #' @param x An object to convert to class \code{\link{ChromatinAssay}}
 #' @param ... Arguments passed to other methods
+#' @return ChromatinAssay
 #' @rdname as.ChromatinAssay
 #' @export as.ChromatinAssay
+#' @examples
+#' print("see https://satijalab.org/signac/reference/as.chromatinassay")
 as.ChromatinAssay <- function(x, ...) {
     UseMethod(generic = "as.ChromatinAssay", object = x)
 }
@@ -50,6 +57,8 @@ as.ChromatinAssay <- function(x, ...) {
 #' @export
 #' @return Returns a \code{\link[SeuratObject]{Seurat}} object with a new assay
 #' containing the allele frequencies for the informative variants.
+#' @examples
+#' print("see https://satijalab.org/signac/reference/allelefreq")
 AlleleFreq <- function(object, ...) {
     UseMethod(generic = "AlleleFreq", object = object)
 }
@@ -63,6 +72,8 @@ AlleleFreq <- function(object, ...) {
 #' if the annotation data is present, otherwise returns NULL
 #' @rdname Annotation
 #' @export Annotation
+#' @examples
+#' print("see https://satijalab.org/signac/reference/annotation")
 Annotation <- function(object, ...) {
     UseMethod(generic = "Annotation", object = object)
 }
@@ -88,6 +99,8 @@ Annotation <- function(object, ...) {
 #' @return Returns a \code{\link[SeuratObject]{Seurat}} object
 #' @rdname BinarizeCounts
 #' @export BinarizeCounts
+#' @examples
+#' print("see https://satijalab.org/signac/reference/binarizecounts")
 BinarizeCounts <- function(object, ...) {
     UseMethod(generic = "BinarizeCounts", object = object)
 }
@@ -99,7 +112,10 @@ BinarizeCounts <- function(object, ...) {
 #' @param x A Seurat object
 #' @param value A character vector of cell barcodes
 #' @param ... Arguments passed to other methods
+#' @return cell barcode information
 #' @export Cells<-
+#' @examples
+#' print("see https://satijalab.org/signac/reference/allelefreq")
 "Cells<-" <- function(x, ..., value) {
     UseMethod(generic = "Cells<-", object = x)
 }
@@ -138,8 +154,12 @@ Fragments <- function(object, ...) {
 #' Get or set the genomic link information for a Seurat object or ChromatinAssay
 #'
 #' @param ... Arguments passed to other methods
+#' @return Links
+#'
 #' @rdname Links
 #' @export Links
+#' @examples
+#' print("see https://satijalab.org/signac/articles/data_structures.html")
 Links <- function(object, ...) {
     UseMethod(generic = "Links", object = object)
 }
@@ -163,6 +183,8 @@ Links <- function(object, ...) {
 #' @return Returns a \code{\link[SeuratObject]{Seurat}} object
 #' @rdname RegionMatrix
 #' @export RegionMatrix
+#' @examples
+#' print("see https://satijalab.org/signac/reference/regionheatmap")
 RegionMatrix <- function(object, ...) {
     UseMethod(generic = "RegionMatrix", object = object)
 }
@@ -177,6 +199,8 @@ RegionMatrix <- function(object, ...) {
 #' @return Returns a dataframe
 #' @rdname RegionStats
 #' @export RegionStats
+#' @examples
+#' print("see https://satijalab.org/signac/reference/regionstats")
 RegionStats <- function(object, ...) {
     UseMethod(generic = "RegionStats", object = object)
 }

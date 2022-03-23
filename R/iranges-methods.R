@@ -29,6 +29,8 @@ setOldClass(Classes = "ChromatinAssay")
 #' should be ignored.
 #' @param ... Additional arguments for methods
 #'
+#' @return nearest range neighbors
+#'
 #' @aliases precede precede,ANY,ChromatinAssay-method
 #' @seealso
 #' \itemize{
@@ -39,6 +41,8 @@ setOldClass(Classes = "ChromatinAssay")
 #'  }
 #' @exportMethod precede
 #' @concept nearest
+#' @examples
+#' print("see https://satijalab.org/signac/reference/chromatinassay-class")
 setMethod(
   f = "precede",
   signature = c("ANY", "ChromatinAssay"),
@@ -284,6 +288,9 @@ setMethod(
 #'
 #' @exportMethod findOverlaps
 #' @concept overlaps
+#'
+#' @examples
+#' print("see https://satijalab.org/signac/reference/chromatinassay-class")
 setMethod(
   f = "findOverlaps",
   signature = c("Vector", "ChromatinAssay"),
@@ -393,6 +400,8 @@ setMethod(
 #' @param method See \code{\link[IRanges]{coverage}} in the \pkg{IRanges}
 #' package
 #'
+#' @return Genome Coverage
+#'
 #' @aliases coverage
 #' @seealso
 #' \itemize{
@@ -404,6 +413,8 @@ setMethod(
 #' @exportMethod coverage
 #' @describeIn coverage-ChromatinAssay-method method for ChromatinAssay objects
 #' @concept coverage
+#' @examples
+#' print("see https://satijalab.org/signac/reference/chromatinassay-class")
 setMethod(
   f = "coverage",
   signature = "ChromatinAssay",
@@ -426,6 +437,9 @@ setMethod(
 #' @name inter-range-methods
 #' @param x A \code{\link{ChromatinAssay}} object
 #' @param ... Additional arguments
+#'
+#' @return inter-range-methods
+#'
 #' @param with.revmap See \code{\link[IRanges]{inter-range-methods}} in the
 #' \pkg{IRanges} packages
 #' @param na.rm Ignored
@@ -440,6 +454,8 @@ setMethod(
 #'  }
 #' @exportMethod range
 #' @concept inter_range
+#' @examples
+#' print("see https://satijalab.org/signac/reference/chromatinassay-class")
 setMethod(
   f = "range",
   signature = "ChromatinAssay",

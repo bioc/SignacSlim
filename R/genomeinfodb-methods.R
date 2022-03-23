@@ -24,6 +24,8 @@ setOldClass(Classes = "ChromatinAssay")
 #' @name seqinfo-methods
 #' @param x A \code{\link{ChromatinAssay}} object
 #'
+#' @return seqinfo-methods
+#'
 #' @aliases seqinfo seqinfo,ChromatinAssay-method
 #' @seealso
 #' \itemize{
@@ -32,6 +34,8 @@ setOldClass(Classes = "ChromatinAssay")
 #'  }
 #' @exportMethod seqinfo
 #' @concept seqinfo
+#' @examples
+#' print("see https://satijalab.org/signac/reference/chromatinassay-class")
 setMethod(
   f = "seqinfo",
   signature = "ChromatinAssay",

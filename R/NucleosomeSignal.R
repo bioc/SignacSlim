@@ -25,15 +25,7 @@
 #' @importFrom stats ecdf
 #'
 #' @examples
-#' \dontrun{
-#' fpath <- system.file("extdata", "fragments.tsv.gz", package="Signac")
-#' Fragments(atac_small) <- CreateFragmentObject(
-#'   path = fpath,
-#'   cells = colnames(atac_small),
-#'   tolerance = 0.5
-#' )
-#' NucleosomeSignal(object = atac_small)
-#' }
+#' print("see https://satijalab.org/signac/reference/nucleosomesignal")
 NucleosomeSignal <- function(
         object,
         assay = NULL,

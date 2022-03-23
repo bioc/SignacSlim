@@ -20,6 +20,8 @@
 #' @export
 #' @concept visualization
 #' @concept qc
+#' @examples
+#' print("see https://satijalab.org/signac/reference/tssplot")
 TSSPlot <- function(
         object,
         assay = NULL,
@@ -103,15 +105,7 @@ TSSPlot <- function(
 #' @concept qc
 #' @return Returns a \code{\link[ggplot2]{ggplot}} object
 #' @examples
-#' \donttest{
-#' fpath <- system.file("extdata", "fragments.tsv.gz", package="Signac")
-#' Fragments(atac_small) <- CreateFragmentObject(
-#'   path = fpath,
-#'   cells = colnames(atac_small),
-#'   validate.fragments = FALSE
-#' )
-#' FragmentHistogram(object = atac_small, region = "chr1-10245-780007")
-#' }
+#' print("see https://satijalab.org/signac/reference/fragmenthistogram")
 FragmentHistogram <- function(
         object,
         assay = NULL,

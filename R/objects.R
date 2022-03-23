@@ -27,6 +27,9 @@ setClassUnion(name = "AnyMatrix", c("matrix", "dgCMatrix"))
 #' @rdname Fragment-class
 #' @exportClass Fragment
 #' @concept fragments
+#'
+#' @examples
+#' print("see https://satijalab.org/signac/reference/fragments")
 Fragment <- setClass(
   Class = "Fragment",
   slots = list(
@@ -129,12 +132,16 @@ ChromatinAssay <- setClass(
 #' @param verbose Display messages
 #' @param ... Additional arguments passed to \code{\link{CreateFragmentObject}}
 #'
+#' @return ChromatinAssay
+#'
 #' @importFrom SeuratObject CreateAssayObject
 #' @importFrom Matrix rowSums colSums
 #' @importFrom GenomicRanges isDisjoint
 #' @concept assay
 #'
 #' @export
+#' @examples
+#' print("see https://satijalab.org/signac/reference/createchromatinassay")
 CreateChromatinAssay <- function(
   counts,
   data,
@@ -404,8 +411,11 @@ GetAssayData.ChromatinAssay <- function(
 #'
 #' @param object A \code{\link{Fragment}} object
 #' @param slot Information to pull from object (path, hash, cells, prefix, suffix)
+#' @return Fragment object
 #' @export
 #' @concept assay
+#' @examples
+#' print("see https://satijalab.org/signac/reference/getfragmentdata")
 GetFragmentData <- function(object, slot = "path") {
   return(slot(object = object, name = slot))
 }

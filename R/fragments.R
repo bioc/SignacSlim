@@ -59,10 +59,8 @@ head.Fragment <- function(x, n = 6L, ...) {
 #' }
 #'
 #' @examples
-#' \dontrun{
-#' fpath <- system.file("extdata", "fragments.tsv.gz", package="Signac")
+#' fpath <- system.file("extdata", "fragments.tsv.gz", package="SignacSlim")
 #' counts <- CountFragments(fragments = fpath)
-#' }
 #'
 CountFragments <- function(
   fragments,
@@ -126,6 +124,8 @@ CountFragments <- function(
 #' must be longer than the longest line in the file.
 #' @param verbose Display messages
 #'
+#' @return Filter cells from fragment file
+#'
 #' @importFrom Rsamtools bgzip indexTabix
 #'
 #' @export
@@ -133,16 +133,15 @@ CountFragments <- function(
 #' @concept fragments
 #'
 #' @examples
-#' \dontrun{
-#' fpath <- system.file("extdata", "fragments.tsv.gz", package="Signac")
+#' fpath <- system.file("extdata", "fragments.tsv.gz", package="SignacSlim")
+#' cells <- readLines(system.file("extdata", "cell_name.txt", package="SignacSlim"))
 #' tmpf <- tempfile(fileext = ".gz")
 #' FilterCells(
 #'   fragments = fpath,
-#'   cells = head(colnames(atac_small)),
+#'   cells = cells,
 #'   outfile = tmpf
 #' )
 #' file.remove(tmpf)
-#' }
 #'
 FilterCells <- function(
   fragments,
@@ -210,10 +209,14 @@ FilterCells <- function(
 #' file to be unsorted.
 #' @param verbose Display messages
 #'
+#' @return SplitFragments
+#'
 #' @concept fragments
 #'
 #' @export
 #'
+#' @examples
+#' print("see https://satijalab.org/signac/reference/splitfragments")
 SplitFragments <- function(
   object,
   assay = NULL,
@@ -311,18 +314,15 @@ SplitFragments <- function(
 #' @param verbose Display messages
 #' @param ... Additional arguments passed to \code{ValidateCells}
 #'
+#' @return Fragment object
+#'
 #' @importFrom tools md5sum file_ext
 #'
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' fpath <- system.file("extdata", "fragments.tsv.gz", package="Signac")
-#' cells <- colnames(x = atac_small)
-#' names(x = cells) <- paste0("test_", cells)
-#' frags <- CreateFragmentObject(path = fpath, cells = cells, verbose = FALSE, tolerance = 0.5)
-#' }
-#'
+#' fpath <- system.file("extdata", "fragments.tsv.gz", package="SignacSlim")
+#' fragments <- CreateFragmentObject(fpath)
 CreateFragmentObject <- function(
   path,
   cells = NULL,
@@ -414,8 +414,13 @@ CreateFragmentObject <- function(
 #' are not present. Setting this value to NULL will enable an exhaustive search
 #' of the entire file.
 #' @param verbose Display messages
+#'
+#' @return ValidateCells
+#'
 #' @export
 #' @concept fragments
+#' @examples
+#' print("see https://satijalab.org/signac/reference/validatecells")
 ValidateCells <- function(
   object,
   cells = NULL,
@@ -452,10 +457,14 @@ ValidateCells <- function(
 #'
 #' @param object A \code{\link{Fragment}} object
 #' @param verbose Display messages
+#'
+#' @return ValidateHash
+#'
 #' @export
 #' @concept fragments
 #' @importFrom tools md5sum
-#'
+#' @examples
+#' print("see https://satijalab.org/signac/reference/validatehash")
 ValidateHash <- function(object, verbose = TRUE) {
   path <- GetFragmentData(object = object, slot = "path")
   index.file <- paste0(path, ".tbi")
@@ -484,9 +493,13 @@ ValidateHash <- function(object, verbose = TRUE) {
 #' @param object A \code{\link{Fragment}} object
 #' @param verbose Display messages
 #' @param ... Additional parameters passed to \code{\link{ValidateCells}}
+#'
+#' @return ValidateFragments
+#'
 #' @export
 #' @concept fragments
-#'
+#' @examples
+#' print("see https://satijalab.org/signac/reference/validatefragments")
 ValidateFragments <- function(
   object,
   verbose = TRUE,
@@ -510,11 +523,15 @@ ValidateFragments <- function(
 #' \code{GetFragmentData(object = x, name = "cells")}.
 #' @param x A Fragment object
 #' @param ... Arguments passed to other methods
+#' @return cell barcode information
+#'
 #' @rdname Cells
+#'
 #' @concept fragments
 #' @method Cells Fragment
 #' @importFrom SeuratObject Cells
 #' @export
+#'
 Cells.Fragment <- function(x, ...) {
   cells <- slot(object = x, name = "cells")
   return(names(x = cells))
@@ -551,9 +568,12 @@ Cells.Fragment <- function(x, ...) {
 #' @param new.path Path to the fragment file
 #' @param verbose Display messages
 #'
+#' @return UpdatePath
+#'
 #' @concept fragments
 #' @export
-#'
+#' @examples
+#' print("see https://satijalab.org/signac/reference/updatepath")
 UpdatePath <- function(object, new.path, verbose = TRUE) {
   new.is.remote <- isRemote(x = new.path)
   if (!new.is.remote) {

@@ -38,15 +38,7 @@ NULL
 #' @export
 #' @concept qc
 #' @examples
-#' \dontrun{
-#' fpath <- system.file("extdata", "fragments.tsv.gz", package="Signac")
-#' Fragments(atac_small) <- CreateFragmentObject(
-#'   path = fpath,
-#'   cells = colnames(atac_small),
-#'   tolerance = 0.5
-#' )
-#' TSSEnrichment(object = atac_small)
-#' }
+#' print("see https://satijalab.org/signac/reference/tssenrichment")
 TSSEnrichment <- function(
   object,
   tss.positions = NULL,

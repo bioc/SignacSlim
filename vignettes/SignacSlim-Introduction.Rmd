@@ -24,7 +24,7 @@ knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
 
 # SignacSlim Introduction
 
-This package contains the basic classes and methods from SeuratObject, Seurat and Signac. This package aims to provide upstream functions for developing the scATAC-seq algorithm.
+This package contains the basic methods from SeuratObject, Seurat and Signac. This package aims to provide upstream functions for developing the scATAC-seq algorithm.
 
 For more information, please see [Signac](https://satijalab.org/signac/)
 

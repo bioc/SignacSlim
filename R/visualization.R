@@ -45,7 +45,7 @@ TSSPlot <- function(
 
     # remove motif and expected
     if (nrow(x = enrichment.matrix) == (ncol(x = object) + 2)) {
-        enrichment.matrix <- enrichment.matrix[1:(nrow(x = enrichment.matrix) - 2), ]
+        enrichment.matrix <- enrichment.matrix[seq((nrow(x = enrichment.matrix) - 2)), ]
     }
 
     # average the signal per group per base

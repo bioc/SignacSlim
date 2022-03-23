@@ -286,8 +286,8 @@ PartialMatrix <- function(tabix, regions, sep = c("-", "-"), cells = NULL) {
             x = rep(x = 1, length(x = cells.in.regions))
         )
         featmat <- as(Class = "dgCMatrix", object = featmat)
-        rownames(x = featmat) <- all.features[1:max(feature.vec)]
-        colnames(x = featmat) <- names(x = cell.lookup)[1:max(cells.in.regions)]
+        rownames(x = featmat) <- all.features[seq(max(feature.vec))]
+        colnames(x = featmat) <- names(x = cell.lookup)[seq(max(cells.in.regions))]
         # add zero columns for missing cells
         if (!is.null(x = cells)) {
             featmat <- AddMissingCells(x = featmat, cells = cells)
@@ -408,7 +408,7 @@ ExtractCell <- function(x) {
         x <- stri_split_fixed(str = x, pattern = "\t")
         n <- length(x = x)
         x <- unlist(x = x)
-        return(unlist(x = x)[5 * (1:n) - 1])
+        return(unlist(x = x)[5 * (seq(n)) - 1])
     }
 }
 

@@ -73,7 +73,7 @@ TSSEnrichment <- function(
     if (n > length(x = tss.positions)) {
       n <- length(x = tss.positions)
     }
-    tss.positions <- tss.positions[1:n, ]
+    tss.positions <- tss.positions[seq(n), ]
   }
 
   # exclude chrM
@@ -111,7 +111,8 @@ TSSEnrichment <- function(
   if (verbose) {
     message("Computing mean insertion frequency in flanking regions")
   }
-  flanking.mean <- rowMeans(x = cutmatrix[, c(1:100, 1902:2001)])
+  flanking.mean <- rowMeans(x = cutmatrix[, c(seq(from = 1, to = 100),
+                                              seq(from = 1902, to = 2001))])
 
   # if the flanking mean is 0 for any cells, the enrichment score will be zero.
   # instead replace with the mean from the whole population

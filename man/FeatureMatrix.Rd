@@ -43,7 +43,6 @@ Returns a sparse matrix
 Construct a feature x cell matrix from a genomic fragments file
 }
 \examples{
-library(rtracklayer)
 fpath <- system.file("extdata", "fragments.tsv.gz", package="SignacSlim")
 ppath <- system.file("extdata", "peaks.rds", package="SignacSlim")
 peaks <- readRDS(ppath)

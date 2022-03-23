@@ -57,7 +57,7 @@ ChunkGRanges <- function(granges, nchunk) {
 #' Extract data from a \code{\link{Fragment-class}} object
 #'
 #' @param object A Fragment object
-#' @param slot Information to pull from object(path,hash,cells,prefix,suffix)
+#' @param slot Information to pull from object (path, hash, cells, prefix, suffix)
 #'
 GetFragmentData <- function(object, slot = "path") {
     return(slot(object = object, name = slot))
@@ -76,7 +76,6 @@ GetFragmentData <- function(object, slot = "path") {
 #' @importMethodsFrom GenomicRanges intersect
 #' @importFrom Rsamtools TabixFile seqnamesTabix
 #' @importFrom fastmatch fmatch
-#' @return SingleFeatureMatrix
 #'
 SingleFeatureMatrix <- function(
         fragment,
@@ -161,9 +160,7 @@ SingleFeatureMatrix <- function(
         # cells supplied, rename with cell name from object rather than file
         cell.convert <- names(x = cells)
         names(x = cell.convert) <- cells
-        colnames(x = featmat) <- unname(
-            obj = cell.convert[colnames(x = featmat)]
-            )
+        colnames(x = featmat) <- unname(obj = cell.convert[colnames(x = featmat)])
     }
     # reorder features
     feat.str <- GRangesToString(grange = features, sep = sep)
@@ -205,7 +202,6 @@ StringToGRanges <- function(regions, sep = c("-", "-"), ...) {
 
 #' Check if path is remote
 #' @param x path/s to check
-#' @return TRUE or FALSE
 isRemote <- function(x) {
     return(grepl(pattern = "^http|^ftp", x = x))
 }
@@ -286,14 +282,14 @@ PartialMatrix <- function(tabix, regions, sep = c("-", "-"), cells = NULL) {
             x = rep(x = 1, length(x = cells.in.regions))
         )
         featmat <- as(Class = "dgCMatrix", object = featmat)
-        rownames(x = featmat) <- all.features[seq(max(feature.vec))]
-        colnames(x=featmat) <- names(x=cell.lookup)[seq(max(cells.in.regions))]
+        rownames(x = featmat) <- all.features[1:max(feature.vec)]
+        colnames(x = featmat) <- names(x = cell.lookup)[1:max(cells.in.regions)]
         # add zero columns for missing cells
         if (!is.null(x = cells)) {
             featmat <- AddMissingCells(x = featmat, cells = cells)
         }
         # add zero rows for missing features
-        missing.features<-all.features[!(all.features %in% rownames(x=featmat))]
+        missing.features <- all.features[!(all.features %in% rownames(x = featmat))]
         if (length(x = missing.features) > 0) {
             null.mat <- sparseMatrix(
                 i = c(),
@@ -326,10 +322,11 @@ PartialMatrix <- function(tabix, regions, sep = c("-", "-"), cells = NULL) {
 #' @concept utilities
 #' @return Returns a list
 #' @examples
-#' if(FLASE){
-#'     fpath <- system.file("extdata", "fragments.tsv.gz", package="Signac")
-#'     GetCellsInRegion(tabix = fpath, region = "chr1-10245-762629")
+#' \dontrun{
+#' fpath <- system.file("extdata", "fragments.tsv.gz", package="Signac")
+#' GetCellsInRegion(tabix = fpath, region = "chr1-10245-762629")
 #' }
+#'
 GetCellsInRegion <- function(tabix, region, cells = NULL) {
     if (!is(object = region, class2 = "GRanges")) {
         region <- StringToGRanges(regions = region)
@@ -362,10 +359,6 @@ GetCellsInRegion <- function(tabix, region, cells = NULL) {
 #' @return Returns a character vector
 #' @export
 #' @concept utilities
-#' @examples
-#' if(FLASE){
-#'     GRangesToString(grange = blacklist_hg19)
-#' }
 GRangesToString <- function(grange, sep = c("-", "-")) {
     regions <- paste0(
         as.character(x = seqnames(x = grange)),
@@ -412,7 +405,7 @@ ExtractCell <- function(x) {
         x <- stri_split_fixed(str = x, pattern = "\t")
         n <- length(x = x)
         x <- unlist(x = x)
-        return(unlist(x = x)[5 * (seq(n)) - 1])
+        return(unlist(x = x)[5 * (1:n) - 1])
     }
 }
 
@@ -433,11 +426,7 @@ ExtractCell <- function(x) {
 #' @concept preprocessing
 #' @importFrom hdf5r H5File existsGroup
 #' @importFrom Matrix sparseMatrix
-#' @examples
-#' if(FLASE){
-#'     counts <-
-#'     Read10X_h5(filename = "atac_v1_pbmc_10k_filtered_peak_bc_matrix.h5")
-#' }
+#'
 Read10X_h5 <- function(filename, use.names = TRUE, unique.features = TRUE) {
     if (!requireNamespace('hdf5r', quietly = TRUE)) {
         stop("Please install hdf5r to read HDF5 files")
@@ -487,8 +476,7 @@ Read10X_h5 <- function(filename, use.names = TRUE, unique.features = TRUE) {
             types <- infile[[paste0(genome, '/features/feature_type')]][]
             types.unique <- unique(x = types)
             if (length(x = types.unique) > 1) {
-                message("Genome ", genome, " has multiple modalities, return-
-                        ing a list of matrices for this genome")
+                message("Genome ", genome, " has multiple modalities, returning a list of matrices for this genome")
                 sparse.mat <- sapply(
                     X = types.unique,
                     FUN = function(x) {
@@ -522,18 +510,12 @@ Read10X_h5 <- function(filename, use.names = TRUE, unique.features = TRUE) {
 #'
 #' @importFrom GenomeInfoDb keepStandardChromosomes seqinfo
 #' @importFrom biovizBase crunch
-#' @return genomic ranges
 #' @concept utilities
 #' @export
-#' @examples
-#' if(FLASE){
-#'     require(EnsDb.Hsapiens.v75)
-#'     annotations <- GetGRangesFromEnsDb(ensdb = EnsDb.Hsapiens.v75)
-#' }
 GetGRangesFromEnsDb <- function(
         ensdb,
         standard.chromosomes = TRUE,
-        biotypes = c("protein_coding","lincRNA","rRNA","processed_transcript"),
+        biotypes = c("protein_coding", "lincRNA", "rRNA", "processed_transcript"),
         verbose = TRUE
 ) {
     # if (!requireNamespace("biovizBase", quietly = TRUE)) {
@@ -543,8 +525,7 @@ GetGRangesFromEnsDb <- function(
     # convert seqinfo to granges
     whole.genome <-  as(object = seqinfo(x = ensdb), Class = "GRanges")
     if (standard.chromosomes) {
-        whole.genome <- keepStandardChromosomes(whole.genome,
-                                                pruning.mode = "coarse")
+        whole.genome <- keepStandardChromosomes(whole.genome, pruning.mode = "coarse")
     }
 
     # extract genes from each chromosome
@@ -557,12 +538,11 @@ GetGRangesFromEnsDb <- function(
         })
     } else {
         tx <- sapply(X = seq_along(whole.genome), FUN = function(x){
-            expr = biovizBase::crunch(
+            suppressMessages(expr = biovizBase::crunch(
                 obj = ensdb,
                 which = whole.genome[x],
-                columns = c("tx_id", "gene_name", "gene_id", "gene_biotype"))
+                columns = c("tx_id", "gene_name", "gene_id", "gene_biotype")))
         })
-        print("Please Ignore the above Messages.")
     }
 
     # combine
@@ -596,9 +576,8 @@ UpdateSlots <- function(object) {
     object <- do.call(what = 'new', args = object.list)
     for (x in setdiff(x = slotNames(x = object), y = names(x = object.list))) {
         xobj <- slot(object = object, name = x)
-        if (is.vector(x=xobj) && !is.list(x=xobj) && length(x = xobj) == 0) {
-            slot(object = object, name = x) <- vector(mode = class(x = xobj),
-                                                      length = 1L)
+        if (is.vector(x = xobj) && !is.list(x = xobj) && length(x = xobj) == 0) {
+            slot(object = object, name = x) <- vector(mode = class(x = xobj), length = 1L)
         }
     }
     return(object)
@@ -606,8 +585,8 @@ UpdateSlots <- function(object) {
 
 
 #' Run groupCommand for the first n lines, convert the cell barcodes in the file
-#' to the cell names that appear in the fragment object,
-#' and subset the output to cells present in the fragment object
+#' to the cell names that appear in the fragment object, and subset the output to
+#' cells present in the fragment object
 #'
 #' Every cell in the fragment file will be present in the output dataframe. If
 #' the cell information is not set, every cell barcode that appears in the first
@@ -664,13 +643,8 @@ ExtractFragments <- function(fragments, n = NULL, verbose = TRUE) {
 #' supplied gene annotation.
 #' @importFrom GenomicRanges resize
 #' @importFrom S4Vectors mcols
-#' @return TSS positions
 #' @export
 #' @concept utilities
-#' @examples
-#' if(FLASE){
-#'     print("see https://satijalab.org/signac/reference/gettsspositions")
-#' }
 GetTSSPositions <- function(ranges, biotypes = "protein_coding") {
     if (!("gene_biotype" %in% colnames(x = mcols(x = ranges)))) {
         stop("Gene annotation does not contain gene_biotype information")
@@ -706,8 +680,7 @@ CollapseToLongestTranscript <- function(ranges) {
         "gene_id"
     ]
     colnames(x = collapsed) <- c(
-        "gene_id", "seqnames", "start",
-        "end", "strand", "gene_biotype", "gene_name"
+        "gene_id", "seqnames", "start", "end", "strand", "gene_biotype", "gene_name"
     )
     collapsed$gene_name <- make.unique(names = collapsed$gene_name)
     gene.ranges <- makeGRangesFromDataFrame(
@@ -738,9 +711,10 @@ CollapseToLongestTranscript <- function(ranges) {
 #' @concept utilities
 #' @return Returns a \code{\link[GenomicRanges]{GRanges}} object
 #' @examples
-#' if(FLASE){
-#'     Extend(x = blacklist_hg19, upstream = 100, downstream = 100)
+#' \dontrun{
+#' Extend(x = blacklist_hg19, upstream = 100, downstream = 100)
 #' }
+#'
 Extend <- function(
         x,
         upstream = 0,
@@ -785,7 +759,6 @@ Extend <- function(
 #' @param assay Name of the assay to use
 #' @param cells Which cells to include. If NULL, use all cells
 #' @param verbose Display messages
-#' @return RegionPileupMatrix
 #' @importMethodsFrom GenomicRanges strand
 CreateRegionPileupMatrix <- function(
         object,
@@ -826,7 +799,7 @@ CreateRegionPileupMatrix <- function(
 
     # reverse minus strand and add together
     if (is.null(x = cut.matrix.plus)) {
-        full.matrix <- cut.matrix.minus[, rev(x=colnames(x=cut.matrix.minus))]
+        full.matrix <- cut.matrix.minus[, rev(x = colnames(x = cut.matrix.minus))]
     } else if (is.null(x = cut.matrix.minus)) {
         full.matrix <- cut.matrix.plus
     } else {
@@ -928,7 +901,7 @@ MultiRegionCutMatrix <- function(
 #' @importFrom Matrix sparseMatrix
 #' @importFrom Rsamtools TabixFile
 #' @importMethodsFrom GenomicRanges width start end
-#‘ @return Returns a sparse matrix
+# @return Returns a sparse matrix
 SingleFileCutMatrix <- function(
         cellmap,
         region,
@@ -1079,10 +1052,10 @@ TabixOutputToDataFrame <- function(reads, record.ident = TRUE) {
     n <- length(x = reads[[1]])
     unlisted <- unlist(x = reads)
     e1 <- unlisted[n * (seq_along(along.with = reads)) - (n - 1)]
-    e2 <- as.numeric(x = unlisted[n * (seq_along(along.with = reads))-(n - 2)])
-    e3 <- as.numeric(x = unlisted[n * (seq_along(along.with = reads))-(n - 3)])
+    e2 <- as.numeric(x = unlisted[n * (seq_along(along.with = reads)) - (n - 2)])
+    e3 <- as.numeric(x = unlisted[n * (seq_along(along.with = reads)) - (n - 3)])
     e4 <- unlisted[n * (seq_along(along.with = reads)) - (n - 4)]
-    e5 <- as.numeric(x = unlisted[n * (seq_along(along.with = reads))-(n - 5)])
+    e5 <- as.numeric(x = unlisted[n * (seq_along(along.with = reads)) - (n - 5)])
     df <- data.frame(
         "chr" = e1,
         "start" = e2,
@@ -1118,7 +1091,6 @@ TabixOutputToDataFrame <- function(reads, record.ident = TRUE) {
 # @param normalize Perform sequencing depth and cell count normalization
 # @param scale.factor Scaling factor to use. If NULL (default), will use the
 # median normalization factor for all the groups.
-#' @importFrom stats median
 ApplyMatrixByGroup <- function(
         mat,
         groups,

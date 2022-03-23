@@ -1,6 +1,6 @@
 [
     {
-        "file": "C:/Users/zhang/Documents/R Scripts/SignacSlim/src/filter.cpp",
+        "file": "C:/Users/zhang/Documents/GitHub/SignacSlim/src/filter.cpp",
         "file_last_write": 1646606601.0,
         "definitions": [
             {
@@ -8,14 +8,14 @@
                 "kind": 6,
                 "parent_name": "",
                 "name": "filterCells(std::string, std::string, int, int, bool)",
-                "file": "C:/Users/zhang/Documents/R Scripts/SignacSlim/src/filter.cpp",
+                "file": "C:/Users/zhang/Documents/GitHub/SignacSlim/src/filter.cpp",
                 "line": 8,
                 "column": 5
             }
         ]
     },
     {
-        "file": "C:/Users/zhang/Documents/R Scripts/SignacSlim/src/group.cpp",
+        "file": "C:/Users/zhang/Documents/GitHub/SignacSlim/src/group.cpp",
         "file_last_write": 1646606601.0,
         "definitions": [
             {
@@ -23,19 +23,19 @@
                 "kind": 6,
                 "parent_name": "",
                 "name": "groupCommand(std::string, int, std::size_t, bool)",
-                "file": "C:/Users/zhang/Documents/R Scripts/SignacSlim/src/group.cpp",
+                "file": "C:/Users/zhang/Documents/GitHub/SignacSlim/src/group.cpp",
                 "line": 5,
                 "column": 6
             }
         ]
     },
     {
-        "file": "C:/Users/zhang/Documents/R Scripts/SignacSlim/src/group.h",
+        "file": "C:/Users/zhang/Documents/GitHub/SignacSlim/src/group.h",
         "file_last_write": 1646606601.0,
         "definitions": []
     },
     {
-        "file": "C:/Users/zhang/Documents/R Scripts/SignacSlim/src/split.cpp",
+        "file": "C:/Users/zhang/Documents/GitHub/SignacSlim/src/split.cpp",
         "file_last_write": 1646606601.0,
         "definitions": [
             {
@@ -43,14 +43,14 @@
                 "kind": 6,
                 "parent_name": "",
                 "name": "splitFragments(std::string, int, int, int, std::string, std::string, int, bool, bool)",
-                "file": "C:/Users/zhang/Documents/R Scripts/SignacSlim/src/split.cpp",
+                "file": "C:/Users/zhang/Documents/GitHub/SignacSlim/src/split.cpp",
                 "line": 9,
                 "column": 5
             }
         ]
     },
     {
-        "file": "C:/Users/zhang/Documents/R Scripts/SignacSlim/src/validate.cpp",
+        "file": "C:/Users/zhang/Documents/GitHub/SignacSlim/src/validate.cpp",
         "file_last_write": 1646606601.0,
         "definitions": [
             {
@@ -58,7 +58,7 @@
                 "kind": 6,
                 "parent_name": "",
                 "name": "validateCells(std::string, int, std::size_t, std::size_t, bool)",
-                "file": "C:/Users/zhang/Documents/R Scripts/SignacSlim/src/validate.cpp",
+                "file": "C:/Users/zhang/Documents/GitHub/SignacSlim/src/validate.cpp",
                 "line": 5,
                 "column": 6
             }

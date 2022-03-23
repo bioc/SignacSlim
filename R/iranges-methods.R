@@ -10,6 +10,8 @@ setOldClass(Classes = "ChromatinAssay")
 
 ## Nearest methods
 
+# precede
+
 #' Find the nearest range neighbors for ChromatinAssay objects
 #'
 #' The \code{precede, follow, nearest, distance, distanceToNearest} methods
@@ -27,8 +29,6 @@ setOldClass(Classes = "ChromatinAssay")
 #' should be ignored.
 #' @param ... Additional arguments for methods
 #'
-#' @return ChromatinAssay-method
-#'
 #' @aliases precede precede,ANY,ChromatinAssay-method
 #' @seealso
 #' \itemize{
@@ -39,216 +39,219 @@ setOldClass(Classes = "ChromatinAssay")
 #'  }
 #' @exportMethod precede
 #' @concept nearest
-#' @examples
-#' if(FLASE){
-#'     print("see https://satijalab.org/signac/reference/chromatinassay-class")
-#' }
-
 setMethod(
-    f = "precede",
-    signature = c("ANY", "ChromatinAssay"),
-    definition = function(
-        x, subject, select = c("arbitrary", "all"), ignore.strand = FALSE
-    ) {
-        subject <- granges(x = subject)
-        callGeneric()
-    }
+  f = "precede",
+  signature = c("ANY", "ChromatinAssay"),
+  definition = function(
+    x, subject, select = c("arbitrary", "all"), ignore.strand = FALSE
+  ) {
+    subject <- granges(x = subject)
+    callGeneric()
+  }
 )
 
+#' @describeIn nearest-methods method for ChromatinAssay, ANY
 #' @concept nearest
 setMethod(
-    f = "precede",
-    signature = c("ChromatinAssay", "ANY"),
-    definition = function(
-        x, subject, select = c("arbitrary", "all"), ignore.strand = FALSE
-    ) {
-        x <- granges(x = x)
-        callGeneric()
-    }
+  f = "precede",
+  signature = c("ChromatinAssay", "ANY"),
+  definition = function(
+    x, subject, select = c("arbitrary", "all"), ignore.strand = FALSE
+  ) {
+    x <- granges(x = x)
+    callGeneric()
+  }
 )
 
+#' @describeIn nearest-methods method for ChromatinAssay, ChromatinAssay
 #' @concept nearest
 setMethod(
-    f = "precede",
-    signature = c("ChromatinAssay", "ChromatinAssay"),
-    definition = function(
-        x, subject, select = c("arbitrary", "all"), ignore.strand = FALSE
-    ) {
-        x <- granges(x = x)
-        subject <- granges(x = subject)
-        callGeneric()
-    }
+  f = "precede",
+  signature = c("ChromatinAssay", "ChromatinAssay"),
+  definition = function(
+    x, subject, select = c("arbitrary", "all"), ignore.strand = FALSE
+  ) {
+    x <- granges(x = x)
+    subject <- granges(x = subject)
+    callGeneric()
+  }
 )
 
 # follow
 
 #' @aliases follow
+#' @describeIn nearest-methods method for ANY, ChromatinAssay
 #' @exportMethod follow
 #' @concept nearest
 setMethod(
-    f = "follow",
-    signature = c("ANY", "ChromatinAssay"),
-    definition = function(
-        x, subject, select = c("arbitrary", "all"), ignore.strand = FALSE
-    ) {
-        subject <- granges(x = subject)
-        callGeneric()
-    }
+  f = "follow",
+  signature = c("ANY", "ChromatinAssay"),
+  definition = function(
+    x, subject, select = c("arbitrary", "all"), ignore.strand = FALSE
+  ) {
+    subject <- granges(x = subject)
+    callGeneric()
+  }
 )
 
+#' @describeIn nearest-methods method for ChromatinAssay, ANY
 #' @concept nearest
 setMethod(
-    f = "follow",
-    signature = c("ChromatinAssay", "ANY"),
-    definition = function(
-        x, subject, select = c("arbitrary", "all"), ignore.strand = FALSE
-    ) {
-        x <- granges(x = x)
-        callGeneric()
-    }
+  f = "follow",
+  signature = c("ChromatinAssay", "ANY"),
+  definition = function(
+    x, subject, select = c("arbitrary", "all"), ignore.strand = FALSE
+  ) {
+    x <- granges(x = x)
+    callGeneric()
+  }
 )
 
+#' @describeIn nearest-methods method for ChromatinAssay, ChromatinAssay
 #' @concept nearest
 setMethod(
-    f = "follow",
-    signature = c("ChromatinAssay", "ChromatinAssay"),
-    definition = function(
-        x, subject, select = c("arbitrary", "all"), ignore.strand = FALSE
-    ) {
-        x <- granges(x = x)
-        subject <- granges(x = subject)
-        callGeneric()
-    }
+  f = "follow",
+  signature = c("ChromatinAssay", "ChromatinAssay"),
+  definition = function(
+    x, subject, select = c("arbitrary", "all"), ignore.strand = FALSE
+  ) {
+    x <- granges(x = x)
+    subject <- granges(x = subject)
+    callGeneric()
+  }
 )
 
 
 #' @aliases nearest
+#' @describeIn nearest-methods method for ANY, ChromatinAssay
 #' @exportMethod nearest
 #' @concept nearest
 setMethod(
-    f = "nearest",
-    signature = c("ANY", "ChromatinAssay"),
-    definition = function(
-        x, subject, select = c("arbitrary", "all"), ignore.strand = FALSE
-    ) {
-        subject <- granges(x = subject)
-        callGeneric()
-    }
+  f = "nearest",
+  signature = c("ANY", "ChromatinAssay"),
+  definition = function(
+    x, subject, select = c("arbitrary", "all"), ignore.strand = FALSE
+  ) {
+    subject <- granges(x = subject)
+    callGeneric()
+  }
 )
 
+#' @describeIn nearest-methods method for ChromatinAssay, ANY
 #' @concept nearest
 setMethod(
-    f = "nearest",
-    signature = c("ChromatinAssay", "ANY"),
-    definition = function(
-        x, subject, select = c("arbitrary", "all"), ignore.strand = FALSE
-    ) {
-        x <- granges(x = x)
-        callGeneric()
-    }
+  f = "nearest",
+  signature = c("ChromatinAssay", "ANY"),
+  definition = function(
+    x, subject, select = c("arbitrary", "all"), ignore.strand = FALSE
+  ) {
+    x <- granges(x = x)
+    callGeneric()
+  }
 )
 
+#' @describeIn nearest-methods method for ChromatinAssay, ChromatinAssay
 #' @concept nearest
 setMethod(
-    f = "nearest",
-    signature = c("ChromatinAssay", "ChromatinAssay"),
-    definition = function(
-        x, subject, select = c("arbitrary", "all"), ignore.strand = FALSE
-    ) {
-        x <- granges(x = x)
-        subject <- granges(x = subject)
-        callGeneric()
-    }
+  f = "nearest",
+  signature = c("ChromatinAssay", "ChromatinAssay"),
+  definition = function(
+    x, subject, select = c("arbitrary", "all"), ignore.strand = FALSE
+  ) {
+    x <- granges(x = x)
+    subject <- granges(x = subject)
+    callGeneric()
+  }
 )
 
-#' distance
+
 #' @param y For the \code{distance} method, a
 #' \code{\link[GenomicRanges]{GRanges}} object or a \code{\link{ChromatinAssay}}
 #' object
 #'
-#' @return distance
-#'
 #' @aliases distance
 #' @exportMethod distance
+#' @describeIn nearest-methods method for ANY, ChromatinAssay
 #' @concept nearest
-#' @examples
-#' if(FLASE){
-#'     print("see https://satijalab.org/signac/reference/chromatinassay-class")
-#' }
 setMethod(
-    f = "distance",
-    signature = c("ANY", "ChromatinAssay"),
-    definition = function(
-        x, y, ignore.strand = FALSE, ...
-    ) {
-        y <- granges(x = y)
-        callGeneric()
-    }
+  f = "distance",
+  signature = c("ANY", "ChromatinAssay"),
+  definition = function(
+    x, y, ignore.strand = FALSE, ...
+  ) {
+    y <- granges(x = y)
+    callGeneric()
+  }
 )
 
+#' @describeIn nearest-methods method for ChromatinAssay, ANY
 #' @concept nearest
 setMethod(
-    f = "distance",
-    signature = c("ChromatinAssay", "ANY"),
-    definition = function(
-        x, y, ignore.strand = FALSE, ...
-    ) {
-        x <- granges(x = x)
-        callGeneric()
-    }
+  f = "distance",
+  signature = c("ChromatinAssay", "ANY"),
+  definition = function(
+    x, y, ignore.strand = FALSE, ...
+  ) {
+    x <- granges(x = x)
+    callGeneric()
+  }
 )
 
+#' @describeIn nearest-methods method for ChromatinAssay, ChromatinAssay
 #' @concept nearest
 setMethod(
-    f = "distance",
-    signature = c("ChromatinAssay", "ChromatinAssay"),
-    definition = function(
-        x, y, ignore.strand = FALSE, ...
-    ) {
-        y <- granges(x = y)
-        x <- granges(x = x)
-        callGeneric()
-    }
+  f = "distance",
+  signature = c("ChromatinAssay", "ChromatinAssay"),
+  definition = function(
+    x, y, ignore.strand = FALSE, ...
+  ) {
+    y <- granges(x = y)
+    x <- granges(x = x)
+    callGeneric()
+  }
 )
 
 
 #' @aliases distanceToNearest
 #' @exportMethod distanceToNearest
+#' @describeIn nearest-methods method for ANY, ChromatinAssay
 #' @concept nearest
 setMethod(
-    f = "distanceToNearest",
-    signature = c("ANY", "ChromatinAssay"),
-    definition = function(
-        x, subject, ignore.strand = FALSE, ...
-    ) {
-        subject <- granges(x = subject)
-        callGeneric()
-    }
+  f = "distanceToNearest",
+  signature = c("ANY", "ChromatinAssay"),
+  definition = function(
+    x, subject, ignore.strand = FALSE, ...
+  ) {
+    subject <- granges(x = subject)
+    callGeneric()
+  }
 )
 
+#' @describeIn nearest-methods method for ChromatinAssay, ANY
 #' @concept nearest
 setMethod(
-    f = "distanceToNearest",
-    signature = c("ChromatinAssay", "ANY"),
-    definition = function(
-        x, subject, ignore.strand = FALSE, ...
-    ) {
-        x <- granges(x = x)
-        callGeneric()
-    }
+  f = "distanceToNearest",
+  signature = c("ChromatinAssay", "ANY"),
+  definition = function(
+    x, subject, ignore.strand = FALSE, ...
+  ) {
+    x <- granges(x = x)
+    callGeneric()
+  }
 )
 
+#' @describeIn nearest-methods method for ChromatinAssay, ChromatinAssay
 #' @concept nearest
 setMethod(
-    f = "distanceToNearest",
-    signature = c("ChromatinAssay", "ChromatinAssay"),
-    definition = function(
-        x, subject, ignore.strand = FALSE, ...
-    ) {
-        subject <- granges(x = subject)
-        x <- granges(x = x)
-        callGeneric()
-    }
+  f = "distanceToNearest",
+  signature = c("ChromatinAssay", "ChromatinAssay"),
+  definition = function(
+    x, subject, ignore.strand = FALSE, ...
+  ) {
+    subject <- granges(x = subject)
+    x <- granges(x = x)
+    callGeneric()
+  }
 )
 
 ## Find overlaps methods
@@ -260,8 +263,7 @@ setMethod(
 #' genomic ranges and the ranges stored in the ChromatinAssay.
 #'
 #' If a ChromatinAssay is set as the default assay in a
-#' \code{\link[SeuratObject]{Seurat}} object, you can also call
-#' \code{findOverlaps}
+#' \code{\link[SeuratObject]{Seurat}} object, you can also call \code{findOverlaps}
 #' directly on the Seurat object.
 #'
 #' @param query,subject A \code{\link{ChromatinAssay}} object
@@ -282,103 +284,98 @@ setMethod(
 #'
 #' @exportMethod findOverlaps
 #' @concept overlaps
-#' @examples
-#' if(FLASE){
-#'     print("see https://satijalab.org/signac/reference/chromatinassay-class")
-#' }
-
 setMethod(
-    f = "findOverlaps",
-    signature = c("Vector", "ChromatinAssay"),
-    definition = function(
-        query, subject, maxgap = -1L, minoverlap = 0L,
-        type = c("any", "start", "end", "within", "equal"),
-        select = c("all", "first", "last", "arbitrary"),
-        ignore.strand = FALSE
-    ) {
-        subject <- granges(x = subject)
-        callGeneric()
-    }
+  f = "findOverlaps",
+  signature = c("Vector", "ChromatinAssay"),
+  definition = function(
+    query, subject, maxgap = -1L, minoverlap = 0L,
+    type = c("any", "start", "end", "within", "equal"),
+    select = c("all", "first", "last", "arbitrary"),
+    ignore.strand = FALSE
+  ) {
+    subject <- granges(x = subject)
+    callGeneric()
+  }
 )
 
 #' @describeIn findOverlaps-methods method for ChromatinAssay, Vector
 #' @concept overlaps
 setMethod(
-    f = "findOverlaps",
-    signature = c("ChromatinAssay", "Vector"),
-    definition = function(
-        query, subject, maxgap = -1L, minoverlap = 0L,
-        type = c("any", "start", "end", "within", "equal"),
-        select = c("all", "first", "last", "arbitrary"),
-        ignore.strand = FALSE
-    ) {
-        query <- granges(x = query)
-        callGeneric()
-    }
+  f = "findOverlaps",
+  signature = c("ChromatinAssay", "Vector"),
+  definition = function(
+    query, subject, maxgap = -1L, minoverlap = 0L,
+    type = c("any", "start", "end", "within", "equal"),
+    select = c("all", "first", "last", "arbitrary"),
+    ignore.strand = FALSE
+  ) {
+    query <- granges(x = query)
+    callGeneric()
+  }
 )
 
 #' @describeIn findOverlaps-methods method for ChromatinAssay, ChromatinAssay
 #' @concept overlaps
 setMethod(
-    f = "findOverlaps",
-    signature = c("ChromatinAssay", "ChromatinAssay"),
-    definition = function(
-        query, subject, maxgap = -1L, minoverlap = 0L,
-        type = c("any", "start", "end", "within", "equal"),
-        select = c("all", "first", "last", "arbitrary"),
-        ignore.strand = FALSE
-    ) {
-        query <- granges(x = query)
-        subject <- granges(x = subject)
-        callGeneric()
-    }
+  f = "findOverlaps",
+  signature = c("ChromatinAssay", "ChromatinAssay"),
+  definition = function(
+    query, subject, maxgap = -1L, minoverlap = 0L,
+    type = c("any", "start", "end", "within", "equal"),
+    select = c("all", "first", "last", "arbitrary"),
+    ignore.strand = FALSE
+  ) {
+    query <- granges(x = query)
+    subject <- granges(x = subject)
+    callGeneric()
+  }
 )
 
 #' @aliases countOverlaps
 #' @describeIn findOverlaps-methods method for Vector, ChromatinAssay
 #' @concept overlaps
 setMethod(
-    f = "countOverlaps",
-    signature = c("Vector", "ChromatinAssay"),
-    definition = function(
-        query, subject, maxgap = -1L, minoverlap = 0L,
-        type = c("any", "start", "end", "within", "equal"),
-        ignore.strand = FALSE
-    ) {
-        subject <- granges(x = subject)
-        callGeneric()
-    }
+  f = "countOverlaps",
+  signature = c("Vector", "ChromatinAssay"),
+  definition = function(
+    query, subject, maxgap = -1L, minoverlap = 0L,
+    type = c("any", "start", "end", "within", "equal"),
+    ignore.strand = FALSE
+  ) {
+    subject <- granges(x = subject)
+    callGeneric()
+  }
 )
 
 #' @describeIn findOverlaps-methods method for ChromatinAssay, Vector
 #' @concept overlaps
 setMethod(
-    f = "countOverlaps",
-    signature = c("ChromatinAssay", "Vector"),
-    definition = function(
-        query, subject, maxgap = -1L, minoverlap = 0L,
-        type = c("any", "start", "end", "within", "equal"),
-        ignore.strand = FALSE
-    ) {
-        query <- granges(x = query)
-        callGeneric()
-    }
+  f = "countOverlaps",
+  signature = c("ChromatinAssay", "Vector"),
+  definition = function(
+    query, subject, maxgap = -1L, minoverlap = 0L,
+    type = c("any", "start", "end", "within", "equal"),
+    ignore.strand = FALSE
+  ) {
+    query <- granges(x = query)
+    callGeneric()
+  }
 )
 
 #' @describeIn findOverlaps-methods method for ChromatinAssay, ChromatinAssay
 #' @concept overlaps
 setMethod(
-    f = "countOverlaps",
-    signature = c("ChromatinAssay", "ChromatinAssay"),
-    definition = function(
-        query, subject, maxgap = -1L, minoverlap = 0L,
-        type = c("any", "start", "end", "within", "equal"),
-        ignore.strand = FALSE
-    ) {
-        subject <- granges(x = subject)
-        query <- granges(x = query)
-        callGeneric()
-    }
+  f = "countOverlaps",
+  signature = c("ChromatinAssay", "ChromatinAssay"),
+  definition = function(
+    query, subject, maxgap = -1L, minoverlap = 0L,
+    type = c("any", "start", "end", "within", "equal"),
+    ignore.strand = FALSE
+  ) {
+    subject <- granges(x = subject)
+    query <- granges(x = query)
+    callGeneric()
+  }
 )
 
 ## Coverage methods
@@ -396,8 +393,6 @@ setMethod(
 #' @param method See \code{\link[IRanges]{coverage}} in the \pkg{IRanges}
 #' package
 #'
-#' @return ChromatinAssay
-#'
 #' @aliases coverage
 #' @seealso
 #' \itemize{
@@ -407,22 +402,18 @@ setMethod(
 #'   \item{\link{ChromatinAssay-class}}
 #'  }
 #' @exportMethod coverage
+#' @describeIn coverage-ChromatinAssay-method method for ChromatinAssay objects
 #' @concept coverage
-#'
-#' @examples
-#' if(FLASE){
-#'     print("see https://satijalab.org/signac/reference/chromatinassay-class")
-#' }
 setMethod(
-    f = "coverage",
-    signature = "ChromatinAssay",
-    definition = function(
-        x, shift = 0L, width = NULL, weight = 1L,
-        method = c("auto", "sort", "hash")
-    ) {
-        x <- granges(x = x)
-        callGeneric()
-    }
+  f = "coverage",
+  signature = "ChromatinAssay",
+  definition = function(
+    x, shift = 0L, width = NULL, weight = 1L,
+    method = c("auto", "sort", "hash")
+  ) {
+    x <- granges(x = x)
+    callGeneric()
+  }
 )
 
 ## inter-range methods
@@ -432,15 +423,14 @@ setMethod(
 #' The \code{range, reduce, gaps, disjoin, isDisjoint, disjointBins} methods
 #' are available for \code{\link{ChromatinAssay}} objects.
 #'
+#' @name inter-range-methods
 #' @param x A \code{\link{ChromatinAssay}} object
 #' @param ... Additional arguments
 #' @param with.revmap See \code{\link[IRanges]{inter-range-methods}} in the
 #' \pkg{IRanges} packages
 #' @param na.rm Ignored
 #'
-#' @return range, ChromatinAssay-method
-#'
-#' @aliases range range, ChromatinAssay-method
+#' @aliases range range,ChromatinAssay-method
 #' @seealso
 #' \itemize{
 #'   \item{\link[IRanges]{inter-range-methods} in the \pkg{IRanges} package.}
@@ -451,95 +441,86 @@ setMethod(
 #' @exportMethod range
 #' @concept inter_range
 setMethod(
-    f = "range",
-    signature = "ChromatinAssay",
-    definition = function(
-        x, ..., with.revmap = FALSE, na.rm = FALSE
-    ) {
-        x <- granges(x = x)
-        callGeneric()
-    }
+  f = "range",
+  signature = "ChromatinAssay",
+  definition = function(
+    x, ..., with.revmap = FALSE, na.rm = FALSE
+  ) {
+    x <- granges(x = x)
+    callGeneric()
+  }
 )
 
-#' reduce-ChromatinAssay-method
-#'
 #' @param drop.empty.ranges See \code{?\link{IRanges}{inter-range-methods}}
-#' @return reduce-ChromatinAssay-method
 #' @aliases reduce
+#' @describeIn inter-range-methods method for ChromatinAssay objects
 #' @exportMethod reduce
 #' @concept inter_range
-#' @examples
-#' if(FLASE){
-#'     print("see https://satijalab.org/signac/reference/chromatinassay-class")
-#' }
 setMethod(
-    f = "reduce",
-    signature = "ChromatinAssay",
-    definition = function(
-        x, drop.empty.ranges = FALSE, ...
-    ) {
-        x <- granges(x = x)
-        callGeneric()
-    }
+  f = "reduce",
+  signature = "ChromatinAssay",
+  definition = function(
+    x, drop.empty.ranges = FALSE, ...
+  ) {
+    x <- granges(x = x)
+    callGeneric()
+  }
 )
 
-
-#' gaps-ChromatinAssay-method
 #' @param start,end See \code{?\link{IRanges}{inter-range-methods}}
 #' @aliases gaps
+#' @describeIn inter-range-methods method for ChromatinAssay objects
 #' @exportMethod gaps
 #' @concept inter_range
-#' @return ChromatinAssay
-#' @examples
-#' if(FLASE){
-#'     print("see https://satijalab.org/signac/reference/chromatinassay-class")
-#' }
 setMethod(
-    f = "gaps",
-    signature = "ChromatinAssay",
-    definition = function(
-        x, start = NA, end = NA
-    ) {
-        x <- granges(x = x)
-        callGeneric()
-    }
+  f = "gaps",
+  signature = "ChromatinAssay",
+  definition = function(
+    x, start = NA, end = NA
+  ) {
+    x <- granges(x = x)
+    callGeneric()
+  }
 )
 
 
 #' @aliases disjoin
+#' @describeIn inter-range-methods method for ChromatinAssay objects
 #' @exportMethod disjoin
 #' @concept inter_range
 setMethod(
-    f = "disjoin",
-    signature = "ChromatinAssay",
-    definition = function(x, ...) {
-        x <- granges(x = x)
-        callGeneric()
-    }
+  f = "disjoin",
+  signature = "ChromatinAssay",
+  definition = function(x, ...) {
+    x <- granges(x = x)
+    callGeneric()
+  }
 )
 
 
 #' @aliases isDisjoint
+#' @describeIn inter-range-methods method for ChromatinAssay objects
 #' @exportMethod isDisjoint
 #' @concept inter_range
 setMethod(
-    f = "isDisjoint",
-    signature = "ChromatinAssay",
-    definition = function(x, ...) {
-        x <- granges(x = x)
-        callGeneric()
-    }
+  f = "isDisjoint",
+  signature = "ChromatinAssay",
+  definition = function(x, ...) {
+    x <- granges(x = x)
+    callGeneric()
+  }
 )
 
 
 #' @aliases disjointBins
+#' @describeIn inter-range-methods method for ChromatinAssay objects
 #' @exportMethod disjointBins
 #' @concept inter_range
 setMethod(
-    f = "disjointBins",
-    signature = "ChromatinAssay",
-    definition = function(x, ...) {
-        x <- granges(x = x)
-        callGeneric()
-    }
+  f = "disjointBins",
+  signature = "ChromatinAssay",
+  definition = function(x, ...) {
+    x <- granges(x = x)
+    callGeneric()
+  }
 )

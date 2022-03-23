@@ -7,10 +7,7 @@
 #'
 #' @rdname GetAssay
 #' @export GetAssay
-#' @examples
-#' if(FLASE){
-#'     print("see https://satijalab.org/signac/articles/data_structures.html")
-#' }
+#'
 GetAssay <- function(object, ...) {
     UseMethod(generic = 'GetAssay', object = object)
 }
@@ -27,11 +24,6 @@ GetAssay <- function(object, ...) {
 #' @param ... Additional arguments passed to other methods
 #' @export AggregateTiles
 #' @rdname AggregateTiles
-#' @return AggregateTiles
-#' @examples
-#' if(FLASE){
-#'     print("see https://satijalab.org/signac/reference/aggregatetiles")
-#' }
 AggregateTiles <- function(object, ...) {
     UseMethod(generic = "AggregateTiles", object = object)
 }
@@ -41,7 +33,6 @@ AggregateTiles <- function(object, ...) {
 #' @param ... Arguments passed to other methods
 #' @rdname as.ChromatinAssay
 #' @export as.ChromatinAssay
-#' @return a ChromatinAssay
 as.ChromatinAssay <- function(x, ...) {
     UseMethod(generic = "as.ChromatinAssay", object = x)
 }
@@ -59,10 +50,6 @@ as.ChromatinAssay <- function(x, ...) {
 #' @export
 #' @return Returns a \code{\link[SeuratObject]{Seurat}} object with a new assay
 #' containing the allele frequencies for the informative variants.
-#' @examples
-#' if(FLASE){
-#'     print("see https://satijalab.org/signac/reference/allelefreq")
-#' }
 AlleleFreq <- function(object, ...) {
     UseMethod(generic = "AlleleFreq", object = object)
 }
@@ -86,8 +73,6 @@ Annotation <- function(object, ...) {
 #' assay, the genome of the new annotations must match the genome of the assay.
 #'
 #' @rdname Annotation
-#' @return Returns a \code{\link[GenomicRanges]{GRanges}} object
-#' if the annotation data is present, otherwise returns NULL
 #' @export Annotation<-
 #'
 "Annotation<-" <- function(object, ..., value) {
@@ -103,10 +88,6 @@ Annotation <- function(object, ...) {
 #' @return Returns a \code{\link[SeuratObject]{Seurat}} object
 #' @rdname BinarizeCounts
 #' @export BinarizeCounts
-#' @examples
-#' if(FLASE){
-#'     print("see https://satijalab.org/signac/reference/binarizecounts")
-#' }
 BinarizeCounts <- function(object, ...) {
     UseMethod(generic = "BinarizeCounts", object = object)
 }
@@ -118,12 +99,7 @@ BinarizeCounts <- function(object, ...) {
 #' @param x A Seurat object
 #' @param value A character vector of cell barcodes
 #' @param ... Arguments passed to other methods
-#' @return Cells
 #' @export Cells<-
-#' @examples
-#' if(FLASE){
-#'     print("see https://satijalab.org/seurat/articles/essential_commands.html")
-#' }
 "Cells<-" <- function(x, ..., value) {
     UseMethod(generic = "Cells<-", object = x)
 }
@@ -145,7 +121,7 @@ Fragments <- function(object, ...) {
 }
 
 #' @param value A \code{\link{Fragment}} object or list of Fragment objects
-#' @return Fragments
+#'
 #' @rdname Fragments
 #' @export Fragments<-
 #'
@@ -162,7 +138,6 @@ Fragments <- function(object, ...) {
 #' Get or set the genomic link information for a Seurat object or ChromatinAssay
 #'
 #' @param ... Arguments passed to other methods
-#' @return genomic link
 #' @rdname Links
 #' @export Links
 Links <- function(object, ...) {
@@ -171,7 +146,6 @@ Links <- function(object, ...) {
 
 #' @param value A \code{\link[GenomicRanges]{GRanges}} object
 #' @rdname Links
-#' @return genomic link
 #' @export Links<-
 "Links<-" <- function(object, ..., value) {
     UseMethod(generic = "Links<-", object = object)
@@ -189,11 +163,6 @@ Links <- function(object, ...) {
 #' @return Returns a \code{\link[SeuratObject]{Seurat}} object
 #' @rdname RegionMatrix
 #' @export RegionMatrix
-#' @examples
-#' if(FLASE){
-#'     print("see https://satijalab.org/signac/articles/data_structures.html")
-#' }
-
 RegionMatrix <- function(object, ...) {
     UseMethod(generic = "RegionMatrix", object = object)
 }
@@ -208,10 +177,6 @@ RegionMatrix <- function(object, ...) {
 #' @return Returns a dataframe
 #' @rdname RegionStats
 #' @export RegionStats
-#' @examples
-#' if(FLASE){
-#'     print("see https://satijalab.org/signac/articles/data_structures.html")
-#' }
 RegionStats <- function(object, ...) {
     UseMethod(generic = "RegionStats", object = object)
 }

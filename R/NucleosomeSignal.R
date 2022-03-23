@@ -25,8 +25,14 @@
 #' @importFrom stats ecdf
 #'
 #' @examples
-#' if(FALSE){
-#'     NucleosomeSignal(object = atac_small)
+#' \dontrun{
+#' fpath <- system.file("extdata", "fragments.tsv.gz", package="Signac")
+#' Fragments(atac_small) <- CreateFragmentObject(
+#'   path = fpath,
+#'   cells = colnames(atac_small),
+#'   tolerance = 0.5
+#' )
+#' NucleosomeSignal(object = atac_small)
 #' }
 NucleosomeSignal <- function(
         object,
@@ -72,6 +78,30 @@ NucleosomeSignal <- function(
     object <- AddMetaData(object = object, metadata = af)
     return(object)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

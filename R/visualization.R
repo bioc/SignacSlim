@@ -13,18 +13,13 @@
 #'
 #' @importFrom SeuratObject GetAssayData DefaultAssay
 #' @importFrom Matrix colMeans
-#' @importFrom ggplot2 ggplot aes geom_line xlab ylab
-#' theme_classic ggtitle facet_wrap
+#' @importFrom ggplot2 ggplot aes geom_line xlab ylab theme_classic ggtitle facet_wrap
 #' theme element_blank
 #'
 #' @return Returns a \code{\link[ggplot2]{ggplot2}} object
 #' @export
 #' @concept visualization
 #' @concept qc
-#' @examples
-#' if(FLASE){
-#'     print("see https://satijalab.org/signac/reference/tssplot")
-#' }
 TSSPlot <- function(
         object,
         assay = NULL,
@@ -48,8 +43,7 @@ TSSPlot <- function(
 
     # remove motif and expected
     if (nrow(x = enrichment.matrix) == (ncol(x = object) + 2)) {
-        enrichment.matrix <- enrichment.matrix[
-            seq((nrow(x = enrichment.matrix) - 2)), ]
+        enrichment.matrix <- enrichment.matrix[1:(nrow(x = enrichment.matrix) - 2), ]
     }
 
     # average the signal per group per base
@@ -109,8 +103,14 @@ TSSPlot <- function(
 #' @concept qc
 #' @return Returns a \code{\link[ggplot2]{ggplot}} object
 #' @examples
-#' if(FLASE){
-#'     print("see https://satijalab.org/signac/reference/fragmenthistogram")
+#' \donttest{
+#' fpath <- system.file("extdata", "fragments.tsv.gz", package="Signac")
+#' Fragments(atac_small) <- CreateFragmentObject(
+#'   path = fpath,
+#'   cells = colnames(atac_small),
+#'   validate.fragments = FALSE
+#' )
+#' FragmentHistogram(object = atac_small, region = "chr1-10245-780007")
 #' }
 FragmentHistogram <- function(
         object,
@@ -165,6 +165,20 @@ FragmentHistogram <- function(
     }
     return(p)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

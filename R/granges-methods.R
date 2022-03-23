@@ -29,14 +29,14 @@ NULL
 #' @examples
 #' granges(atac_small)
 setMethod(
-    f = "granges",
-    signature = "ChromatinAssay",
-    definition = function(x, use.names = TRUE, use.mcols = FALSE, ...) {
-        if (!identical(x = use.mcols, y = FALSE)) {
-            stop("\"granges\" method for ChromatinAssay obje-
-                 cts does not support the 'use.mcols' argument")
-        }
-        slot(object = x, name = "ranges")
+  f = "granges",
+  signature = "ChromatinAssay",
+  definition = function(x, use.names = TRUE, use.mcols = FALSE, ...) {
+    if (!identical(x = use.mcols, y = FALSE)) {
+      stop("\"granges\" method for ChromatinAssay objects ",
+           "does not support the 'use.mcols' argument")
     }
+    slot(object = x, name = "ranges")
+  }
 )
 

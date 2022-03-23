@@ -23,15 +23,15 @@
 #' @importFrom SeuratObject RowMergeSparseMatrices
 #'
 #' @examples
+#' \dontrun{
 #' # test data from package Signac
-#' fpath <- system.file("extdata", "fragments.tsv.gz", package="SignacSlim")
-#' ppath <- system.file("extdata", "peaks.rds", package="SignacSlim")
-#' peaks <- readRDS(ppath)
+#' fpath <- system.file("extdata", "fragments.tsv.gz", package="Signac")
 #' fragments <- CreateFragmentObject(fpath)
 #' FeatureMatrix(
-#'     fragments = fragments,
-#'     features = peaks
+#'   fragments = fragments,
+#'   features = granges(atac_small)
 #' )
+#' }
 #'
 FeatureMatrix <- function(
         fragments,

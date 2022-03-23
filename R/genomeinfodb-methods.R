@@ -32,17 +32,12 @@ setOldClass(Classes = "ChromatinAssay")
 #'  }
 #' @exportMethod seqinfo
 #' @concept seqinfo
-#' @return seqinfo
-#' @examples
-#' if(FLASE){
-#'     print("see https://satijalab.org/signac/articles/data_structures.html")
-#' }
 setMethod(
-    f = "seqinfo",
-    signature = "ChromatinAssay",
-    definition = function(x) {
-        slot(object = x, name = "seqinfo")
-    }
+  f = "seqinfo",
+  signature = "ChromatinAssay",
+  definition = function(x) {
+    slot(object = x, name = "seqinfo")
+  }
 )
 
 #' @param value A \code{\link[GenomeInfoDb]{Seqinfo}} object or name of a UCSC
@@ -50,17 +45,16 @@ setMethod(
 #' @describeIn seqinfo-methods set method for ChromatinAssay objects
 #' @exportMethod seqinfo<-
 #' @concept seqinfo
-#' @return seqinfo
 setMethod(
-    f = "seqinfo<-",
-    signature = "ChromatinAssay",
-    definition = function(
-        x,
-        value
-    ) {
-        x <- SetAssayData(object = x, slot = "seqinfo", new.data = value)
-        x
-    }
+  f = "seqinfo<-",
+  signature = "ChromatinAssay",
+  definition = function(
+    x,
+    value
+  ) {
+    x <- SetAssayData(object = x, slot = "seqinfo", new.data = value)
+    x
+  }
 )
 
 #' @aliases seqlevels
@@ -68,32 +62,32 @@ setMethod(
 #' @exportMethod seqlevels
 #' @concept seqinfo
 setMethod(
-    f = "seqlevels",
-    signature = "ChromatinAssay",
-    definition = function(x) {
-        x <- seqinfo(x = x)
-        if (is.null(x = x)) {
-            return(NULL)
-        } else {
-            callGeneric()
-        }
+  f = "seqlevels",
+  signature = "ChromatinAssay",
+  definition = function(x) {
+    x <- seqinfo(x = x)
+    if (is.null(x = x)) {
+      return(NULL)
+    } else {
+      callGeneric()
     }
+  }
 )
 
 #' @describeIn seqinfo-methods set method for ChromatinAssay objects
 #' @exportMethod seqlevels<-
 #' @concept seqinfo
 setMethod(
-    f = "seqlevels<-",
-    signature = "ChromatinAssay",
-    definition = function(
-        x, value
-    ) {
-        sinfo <- seqinfo(x = x)
-        seqlevels(x = sinfo) <- value
-        x <- SetAssayData(object = x, slot = "seqinfo", new.data = sinfo)
-        return(x)
-    }
+  f = "seqlevels<-",
+  signature = "ChromatinAssay",
+  definition = function(
+    x, value
+  ) {
+    sinfo <- seqinfo(x = x)
+    seqlevels(x = sinfo) <- value
+    x <- SetAssayData(object = x, slot = "seqinfo", new.data = sinfo)
+    return(x)
+  }
 )
 
 #' @aliases seqnames
@@ -101,32 +95,32 @@ setMethod(
 #' @exportMethod seqnames
 #' @concept seqinfo
 setMethod(
-    f = "seqnames",
-    signature = "ChromatinAssay",
-    definition = function(x) {
-        x <- seqinfo(x = x)
-        if (is.null(x = x)) {
-            return(NULL)
-        } else {
-            callGeneric()
-        }
+  f = "seqnames",
+  signature = "ChromatinAssay",
+  definition = function(x) {
+    x <- seqinfo(x = x)
+    if (is.null(x = x)) {
+      return(NULL)
+    } else {
+      callGeneric()
     }
+  }
 )
 
 #' @describeIn seqinfo-methods set method for ChromatinAssay objects
 #' @exportMethod seqnames<-
 #' @concept seqinfo
 setMethod(
-    f = "seqnames<-",
-    signature = "ChromatinAssay",
-    definition = function(
-        x, value
-    ) {
-        sinfo <- seqinfo(x = x)
-        seqnames(x = sinfo) <- value
-        x <- SetAssayData(object = x, slot = "seqinfo", new.data = sinfo)
-        return(x)
-    }
+  f = "seqnames<-",
+  signature = "ChromatinAssay",
+  definition = function(
+    x, value
+  ) {
+    sinfo <- seqinfo(x = x)
+    seqnames(x = sinfo) <- value
+    x <- SetAssayData(object = x, slot = "seqinfo", new.data = sinfo)
+    return(x)
+  }
 )
 
 #' @aliases seqlengths
@@ -134,37 +128,36 @@ setMethod(
 #' @exportMethod seqlengths
 #' @concept seqinfo
 setMethod(
-    f = "seqlengths",
-    signature = "ChromatinAssay",
-    definition = function(x) {
-        x <- seqinfo(x = x)
-        if (is.null(x = x)) {
-            return(NULL)
-        } else {
-            if (is.null(x = x)) {
-                return(NULL)
-            } else {
-                callGeneric()
-            }
-        }
+  f = "seqlengths",
+  signature = "ChromatinAssay",
+  definition = function(x) {
+    x <- seqinfo(x = x)
+    if (is.null(x = x)) {
+      return(NULL)
+    } else {
+      if (is.null(x = x)) {
+        return(NULL)
+      } else {
+        callGeneric()
+      }
     }
+  }
 )
 
 #' @describeIn seqinfo-methods set method for ChromatinAssay objects
-#' @return ChromatinAssay
 #' @exportMethod seqlengths<-
 #' @concept seqinfo
 setMethod(
-    f = "seqlengths<-",
-    signature = "ChromatinAssay",
-    definition = function(
-        x, value
-    ) {
-        sinfo <- seqinfo(x = x)
-        seqlengths(x = sinfo) <- value
-        x <- SetAssayData(object = x, slot = "seqinfo", new.data = sinfo)
-        return(x)
-    }
+  f = "seqlengths<-",
+  signature = "ChromatinAssay",
+  definition = function(
+    x, value
+  ) {
+    sinfo <- seqinfo(x = x)
+    seqlengths(x = sinfo) <- value
+    x <- SetAssayData(object = x, slot = "seqinfo", new.data = sinfo)
+    return(x)
+  }
 )
 
 #' @aliases genome
@@ -172,16 +165,16 @@ setMethod(
 #' @exportMethod genome
 #' @concept seqinfo
 setMethod(
-    f = "genome",
-    signature = "ChromatinAssay",
-    definition = function(x) {
-        x <- seqinfo(x = x)
-        if (is.null(x = x)) {
-            return(NULL)
-        } else {
-            callGeneric()
-        }
+  f = "genome",
+  signature = "ChromatinAssay",
+  definition = function(x) {
+    x <- seqinfo(x = x)
+    if (is.null(x = x)) {
+      return(NULL)
+    } else {
+      callGeneric()
     }
+  }
 )
 
 #' @describeIn seqinfo-methods set method for ChromatinAssay objects
@@ -189,14 +182,14 @@ setMethod(
 #' @exportMethod genome<-
 #' @concept seqinfo
 setMethod(
-    f = "genome<-",
-    signature = "ChromatinAssay",
-    definition = function(
-        x, value
-    ) {
-        x <- SetAssayData(object = x, slot = "seqinfo", new.data = value)
-        return(x)
-    }
+  f = "genome<-",
+  signature = "ChromatinAssay",
+  definition = function(
+    x, value
+  ) {
+    x <- SetAssayData(object = x, slot = "seqinfo", new.data = value)
+    return(x)
+  }
 )
 
 #' @aliases isCircular
@@ -204,31 +197,31 @@ setMethod(
 #' @exportMethod isCircular
 #' @concept seqinfo
 setMethod(
-    f = "isCircular",
-    signature = "ChromatinAssay",
-    definition = function(x) {
-        x <- seqinfo(x = x)
-        if (is.null(x = x)) {
-            return(NULL)
-        } else {
-            callGeneric()
-        }
+  f = "isCircular",
+  signature = "ChromatinAssay",
+  definition = function(x) {
+    x <- seqinfo(x = x)
+    if (is.null(x = x)) {
+      return(NULL)
+    } else {
+      callGeneric()
     }
+  }
 )
 
 #' @describeIn seqinfo-methods set method for ChromatinAssay objects
 #' @exportMethod isCircular<-
 #' @concept seqinfo
 setMethod(
-    f = "isCircular<-",
-    signature = "ChromatinAssay",
-    definition = function(
-        x, value
-    ) {
-        sinfo <- seqinfo(x = x)
-        isCircular(x = sinfo) <- value
-        x <- SetAssayData(object = x, slot = "seqinfo", new.data = sinfo)
-        return(x)
-    }
+  f = "isCircular<-",
+  signature = "ChromatinAssay",
+  definition = function(
+    x, value
+  ) {
+    sinfo <- seqinfo(x = x)
+    isCircular(x = sinfo) <- value
+    x <- SetAssayData(object = x, slot = "seqinfo", new.data = sinfo)
+    return(x)
+  }
 )
 

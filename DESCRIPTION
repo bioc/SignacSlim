@@ -10,61 +10,24 @@ Description: The slim version of signac.
     The package contains the basic classes and methods from SeuratObject, 
     Seurat and Signac. This package aims to provide upstream function  
     for developing the scATAC-seq algorithm.
-Depends:
-    R (>= 4.1.0),
-    methods,
-    Rcpp,
-    RcppEigen
+Depends: R (>= 4.1.0), methods, Rcpp, RcppEigen
 License: GPL-3 | file LICENSE
 Encoding: UTF-8
-LazyData: true
 LinkingTo: Rcpp, RcppEigen
-Imports:
-    Rcpp,
-    RcppEigen,
-    GenomeInfoDb,
-    GenomicRanges, 
-    IRanges,
-    Matrix, 
-    Rsamtools, 
-    fastmatch, 
-    future,
-    future.apply, 
-    pbapply, 
-    tidyr,
-    BiocGenerics,
-    SeuratObject,
-    biovizBase,
-    dplyr,
-    hdf5r,
-    stringi,
-    stats,
-    tools,
-    S4Vectors,
-    data.table,
-    methods,
-    ggplot2
-Suggests:
-    knitr,
-    testthat
+Imports: Rcpp, RcppEigen, GenomeInfoDb, GenomicRanges, IRanges, Matrix,
+        Rsamtools, fastmatch, future, future.apply, pbapply, tidyr,
+        BiocGenerics, SeuratObject, biovizBase, dplyr, hdf5r, stringi,
+        stats, tools, S4Vectors, data.table, methods, ggplot2
+Suggests: knitr, testthat
 RoxygenNote: 7.1.2
 SystemRequirements: C++11
-Collate: 
-    'FeatureMatrix.R'
-    'NucleosomeSignal.R'
-    'RcppExports.R'
-    'generics.R'
-    'fragments.R'
-    'genomeinfodb-methods.R'
-    'granges-methods.R'
-    'iranges-methods.R'
-    'objects.R'
-    'reexports.R'
-    'region-enrichment.R'
-    'utilities.R'
-    'visualization.R'
+Collate: 'FeatureMatrix.R' 'NucleosomeSignal.R' 'RcppExports.R'
+        'generics.R' 'fragments.R' 'genomeinfodb-methods.R'
+        'granges-methods.R' 'iranges-methods.R' 'objects.R'
+        'reexports.R' 'region-enrichment.R' 'utilities.R'
+        'visualization.R'
 biocViews: Software, Sequencing, ATACSeq, WholeGenome, SingleCell
 VignetteBuilder: knitr
-
-
-
+NeedsCompilation: yes
+Packaged: 2022-03-26 13:07:53 UTC; zhang
+Author: Wei Zhang [aut, cre]

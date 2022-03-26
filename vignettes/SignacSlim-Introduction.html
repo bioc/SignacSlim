@@ -12,7 +12,7 @@
 
 <meta name="author" content="Wei Zhang" />
 
-<meta name="date" content="2022-03-23" />
+<meta name="date" content="2022-03-26" />
 
 <title>SignacSlim Introduction</title>
 
@@ -144,7 +144,7 @@ a.sourceLine {
 <div class="inner">
 <h1 class="title toc-ignore">SignacSlim Introduction</h1>
 <h3 class="author">Wei Zhang</h3>
-<h3 class="date">2022-03-23</h3>
+<h3 class="date">2022-03-26</h3>
 </div>
 </header>
 
@@ -153,16 +153,66 @@ a.sourceLine {
 <div id="content-wrapper">
   <div class="inner clearfix">
     <section id="main-content">
-<div id="signacslim-introduction" class="section level1">
-<h1>SignacSlim Introduction</h1>
-<p>This package contains the basic methods from SeuratObject, Seurat and
-Signac. This package aims to provide upstream functions for developing
-the scATAC-seq algorithm.</p>
+<div id="signacslim-introduction" class="section level2">
+<h2>SignacSlim Introduction</h2>
+<p>Single cell ATAC-seq is a promising tool for analyzing
+transcriptional regulation. In addition, Seurat and Signac provides
+popular functions for single cell data pre-processing. However, Seurat
+and Signac depends on too many packages which makes them difficult for
+other package re-use. Signacslim is a slim version of Signac and it
+contains many useful methods from Signac and Seurat. SignacSlim depends
+less packages and can be easily installed compared with Signac and
+Seurat.</p>
 <p>For more information, please see <a href="https://satijalab.org/signac/">Signac</a></p>
 </div>
-<div id="session-info" class="section level1">
-<h1>Session Info</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<div id="how-to-use-signacslim" class="section level2">
+<h2>How to use SignacSlim</h2>
+<p>Here is a demo for fast generating feature matrix for scATAC-seq. The
+algorithm is ultra faster for the situations with more than 10K
+cells.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SignacSlim)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>fpath <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;fragments.tsv.gz&quot;</span>, <span class="at">package=</span><span class="st">&quot;SignacSlim&quot;</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>ppath <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;peaks.rds&quot;</span>, <span class="at">package=</span><span class="st">&quot;SignacSlim&quot;</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>peaks <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(ppath)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>fragments <span class="ot">&lt;-</span> <span class="fu">CreateFragmentObject</span>(fpath)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>Matrix <span class="ot">&lt;-</span> <span class="fu">FeatureMatrix</span>(</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">fragments =</span> fragments,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">features =</span> peaks</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Matrix[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span></code></pre></div>
+<pre><code>## 10 x 4 sparse Matrix of class &quot;dgCMatrix&quot;
+##                    AAACTCGCAGCGTCGT-1 AAACGAAGTGCCCGAT-1 AAACGAATCCTTACGC-1
+## chr1-713460-714823                  1                  1                  1
+## chr1-752422-753038                  .                  .                  .
+## chr1-762106-763359                  .                  .                  .
+## chr1-779589-780271                  .                  .                  .
+## chr1-804872-805761                  .                  .                  .
+## chr1-839520-841123                  .                  .                  .
+## chr1-841866-842572                  .                  .                  .
+## chr1-856165-857031                  .                  .                  .
+## chr1-858464-861548                  .                  .                  .
+## chr1-875427-878705                  .                  .                  .
+##                    AAAGGATCATGGAGGT-1
+## chr1-713460-714823                  1
+## chr1-752422-753038                  .
+## chr1-762106-763359                  .
+## chr1-779589-780271                  .
+## chr1-804872-805761                  .
+## chr1-839520-841123                  .
+## chr1-841866-842572                  .
+## chr1-856165-857031                  .
+## chr1-858464-861548                  .
+## chr1-875427-878705                  .</code></pre>
+</div>
+<div id="session-info" class="section level2">
+<h2>Session Info</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
 <pre><code>## R version 4.1.3 (2022-03-10)
 ## Platform: x86_64-w64-mingw32/x64 (64-bit)
 ## Running under: Windows 10 x64 (build 19044)

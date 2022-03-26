@@ -22,14 +22,38 @@ vignette: >
 knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
 ```
 
-# SignacSlim Introduction
+## SignacSlim Introduction
 
-This package contains the basic methods from SeuratObject, Seurat and Signac. This package aims to provide upstream functions for developing the scATAC-seq algorithm.
+Single cell ATAC-seq is a promising tool for analyzing transcriptional regulation. In addition, Seurat and Signac provides popular functions for single cell data pre-processing. However, Seurat and Signac depends on too many packages which makes them difficult for other package re-use. Signacslim is a slim version of Signac and it contains many useful methods from Signac and Seurat. SignacSlim depends less packages and can be easily installed compared with Signac and Seurat.
 
 For more information, please see [Signac](https://satijalab.org/signac/)
 
+## How to use SignacSlim
 
-# Session Info
+Here is a demo for fast generating feature matrix for scATAC-seq. The algorithm is ultra faster for the situations with more than 10K cells.
+
+```{r}
+library(SignacSlim)
+
+fpath <- system.file("extdata", "fragments.tsv.gz", package="SignacSlim")
+
+ppath <- system.file("extdata", "peaks.rds", package="SignacSlim")
+
+peaks <- readRDS(ppath)
+
+fragments <- CreateFragmentObject(fpath)
+
+Matrix <- FeatureMatrix(
+  fragments = fragments,
+  features = peaks
+)
+
+print(Matrix[1:10, 1:4])
+
+```
+
+
+## Session Info
 
 ```{r}
 sessionInfo()

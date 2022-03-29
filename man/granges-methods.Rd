@@ -26,7 +26,8 @@ Methods for accessing \code{\link[GenomicRanges]{GRanges}} object
 information stored in a \code{\link{ChromatinAssay}} object.
 }
 \examples{
-granges(atac_small)
+ppath <- system.file("extdata", "peaks.rds", package="SignacSlim")
+peaks <- readRDS(ppath)
 }
 \seealso{
 \itemize{

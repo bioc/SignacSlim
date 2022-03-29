@@ -29,5 +29,5 @@ Collate: 'FeatureMatrix.R' 'NucleosomeSignal.R' 'RcppExports.R'
 biocViews: Software, Sequencing, ATACSeq, WholeGenome, SingleCell
 VignetteBuilder: knitr
 NeedsCompilation: yes
-Packaged: 2022-03-26 13:07:53 UTC; zhang
+Packaged: 2022-03-29 11:38:14 UTC; zhangwei
 Author: Wei Zhang [aut, cre]

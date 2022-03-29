@@ -27,7 +27,8 @@ NULL
 #' @exportMethod granges
 #' @concept granges
 #' @examples
-#' granges(atac_small)
+#' ppath <- system.file("extdata", "peaks.rds", package="SignacSlim")
+#' peaks <- readRDS(ppath)
 setMethod(
   f = "granges",
   signature = "ChromatinAssay",

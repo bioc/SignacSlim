@@ -17,7 +17,7 @@ NULL
 #' with the following columns: chrom, start, end, barcode, readCount.
 #'
 #' @export
-#' @importFrom utils head
+#' @importFrom utils head read.table
 #' @method head Fragment
 #' @concept fragments
 #'

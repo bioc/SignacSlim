@@ -46,7 +46,7 @@ Fragment <- setClass(
 #'
 #' @slot ranges A \code{\link[GenomicRanges]{GRanges}} object describing the
 #' genomic location of features in the object
-#' @slot motifs A \code{\link{Motif}} object
+#' @slot motifs A Motif object
 #' @slot fragments A list of \code{\link{Fragment}} objects.
 #' @slot seqinfo A \code{\link[GenomeInfoDb]{Seqinfo}} object containing basic
 #' information about the genome sequence used.

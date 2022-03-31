@@ -5,7 +5,6 @@ Version: 0.99.0
 Authors@R: c(
   person(given = 'Wei', family = 'Zhang', email = 'w-zhang16@tsinghua.org.cn', role = c('aut', 'cre'))
   )
-Maintainer: Wei Zhang <w-zhang16@tsinghua.org.cn>
 Description: The slim version of signac.
     The package contains the basic classes and methods from SeuratObject, 
     Seurat and Signac. This package aims to provide upstream function  
@@ -20,8 +19,6 @@ Encoding: UTF-8
 LazyData: true
 LinkingTo: Rcpp, RcppEigen
 Imports:
-    Rcpp,
-    RcppEigen,
     GenomeInfoDb,
     GenomicRanges, 
     IRanges,
@@ -41,9 +38,9 @@ Imports:
     stats,
     tools,
     S4Vectors,
+    ggplot2,
     data.table,
-    methods,
-    ggplot2
+    utils
 Suggests:
     knitr,
     testthat

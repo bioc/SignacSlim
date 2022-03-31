@@ -1,4 +1,5 @@
 ~%2FGitHub%2FSignacSlim%2FDESCRIPTION="477A3B36"
+~%2FGitHub%2FSignacSlim%2FNAMESPACE="42E8CCA5"
 ~%2FGitHub%2FSignacSlim%2FR%2FFeatureMatrix.R="51BCBC8D"
 ~%2FGitHub%2FSignacSlim%2FR%2FNucleosomeSignal.R="07EBE63F"
 ~%2FGitHub%2FSignacSlim%2FR%2Ffragments.R="F903854D"
@@ -12,6 +13,7 @@
 ~%2FGitHub%2FSignacSlim%2FR%2Futilities.R="38D21E26"
 ~%2FGitHub%2FSignacSlim%2FR%2Fvisualization.R="30509471"
 ~%2FGitHub%2FSignacSlim%2FREADME.md="578E614B"
+~%2FGitHub%2FSignacSlim%2Fman%2FSingleFeatureMatrix.Rd="8AA87781"
 ~%2FGitHub%2FSignacSlim%2Ftests%2Ftestthat%2Ftest-basicopr.R="696FEB87"
 ~%2FGitHub%2FSignacSlim%2Fvignettes%2FSignacSlim-Introduction.R="C5D93290"
 ~%2FGitHub%2FSignacSlim%2Fvignettes%2FSignacSlim-Introduction.Rmd="603FE733"

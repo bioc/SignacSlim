@@ -15,7 +15,7 @@ for the storage and analysis of single-cell chromatin data.
 \item{\code{ranges}}{A \code{\link[GenomicRanges]{GRanges}} object describing the
 genomic location of features in the object}
 
-\item{\code{motifs}}{A \code{\link{Motif}} object}
+\item{\code{motifs}}{A Motif object}
 
 \item{\code{fragments}}{A list of \code{\link{Fragment}} objects.}
 

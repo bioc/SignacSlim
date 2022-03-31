@@ -3,7 +3,11 @@
         {
             "columnIndex": 2,
             "ascending": true
+        },
+        {
+            "columnIndex": 4,
+            "ascending": true
         }
     ],
-    "path": "~/GitHub/SignacSlim/vignettes"
+    "path": "~/GitHub/SignacSlim/R"
 }

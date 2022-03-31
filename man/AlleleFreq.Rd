@@ -10,9 +10,6 @@ AlleleFreq(object, ...)
 \item{object}{A Seurat object, Assay, or matrix}
 
 \item{...}{Arguments passed to other methods}
-
-\item{variants}{A character vector of informative variants to keep. For
-example, \code{c("627G>A","709G>A","1045G>A","1793G>A")}.}
 }
 \value{
 Returns a \code{\link[SeuratObject]{Seurat}} object with a new assay

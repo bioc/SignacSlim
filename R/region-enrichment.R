@@ -175,6 +175,7 @@ TSSEnrichment <- function(
 #' @importFrom future nbrOfWorkers
 #' @importFrom future.apply future_lapply
 #' @importFrom pbapply pblapply
+#' @importFrom utils txtProgressBar
 TSSFast <- function(
   object,
   tss.positions,

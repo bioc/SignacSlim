@@ -67,7 +67,29 @@ GetFragmentData <- function(object, slot = "path") {
 
 #' Run FeatureMatrix on a single Fragment object
 #'
-#' @inheritParams FeatureMatrix
+#' @param fragment A list of \code{\link{Fragment}} objects. Note that if
+#' setting the \code{cells} parameter, the requested cells should be present in
+#' the supplied \code{Fragment} objects. However, if the cells information in
+#' the fragment object is not set (\code{Cells(fragments)} is \code{NULL}), then
+#' the fragment object will still be searched.
+#'
+#' @param features A GRanges object containing a set of genomic intervals.
+#' These will form the rows of the matrix, with each entry recording the number
+#' of unique reads falling in the genomic region for each cell.
+#'
+#' @param cells Vector of cells to include. If NULL, include all cells found
+#' in the fragments file
+#'
+#' @param process_n Number of regions to load into memory at a time, per thread.
+#' Processing more regions at once can be faster but uses more memory.
+#'
+#' @param sep Vector of separators to use for genomic string. First element is
+#' used to separate chromosome and coordinates, second separator is used to
+#' separate start and end coordinates.
+#'
+#' @param verbose Display messages
+#'
+#' @return SingleFeatureMatrix
 #'
 #' @importFrom GenomeInfoDb keepSeqlevels
 #' @importFrom future.apply future_lapply
@@ -78,7 +100,6 @@ GetFragmentData <- function(object, slot = "path") {
 #' @importFrom Rsamtools TabixFile seqnamesTabix
 #' @importFrom fastmatch fmatch
 #'
-#' @return SingleFeatureMatrix
 #'
 SingleFeatureMatrix <- function(
         fragment,
@@ -1089,23 +1110,25 @@ TabixOutputToDataFrame <- function(reads, record.ident = TRUE) {
 
 
 
-# Apply function to integration sites per base per group
-#
-# Perform colSums on a cut matrix with cells in the rows
-# and position in the columns, for each group of cells
-# separately.
-#
-# @param mat A cut matrix. See \code{\link{CutMatrix}}
-# @param groups A vector of group identities, with the name
-# of each element in the vector set to the cell name.
-# @param fun Function to apply to each group of cells.
-# For example, colSums or colMeans.
-# @param group.scale.factors Scaling factor for each group. Should
-# be computed using the number of cells in the group and the average number of
-# counts in the group.
-# @param normalize Perform sequencing depth and cell count normalization
-# @param scale.factor Scaling factor to use. If NULL (default), will use the
-# median normalization factor for all the groups.
+#' Apply function to integration sites per base per group
+#'
+#' Perform colSums on a cut matrix with cells in the rows
+#' and position in the columns, for each group of cells
+#' separately.
+#'
+#' @param mat A cut matrix. See CutMatrix
+#' @param groups A vector of group identities, with the name
+#' of each element in the vector set to the cell name.
+#' @param fun Function to apply to each group of cells.
+#' For example, colSums or colMeans.
+#' @param group.scale.factors Scaling factor for each group. Should
+#' be computed using the number of cells in the group and the average number of
+#' counts in the group.
+#' @param normalize Perform sequencing depth and cell count normalization
+#' @param scale.factor Scaling factor to use. If NULL (default), will use the
+#' median normalization factor for all the groups.
+#'
+#' @importFrom stats median
 ApplyMatrixByGroup <- function(
         mat,
         groups,

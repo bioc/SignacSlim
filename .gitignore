@@ -1,0 +1,29 @@
+# Rstudio files
+.Rproj.user
+*.Rproj
+
+# History files
+.Rhistory
+
+# Data files
+.RData
+.Ruserdata
+
+# Mac
+.DS_Store
+
+# produced vignettes
+vignettes/*.html
+vignettes/*.pdf
+
+# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
+.httr-oauth
+
+.Rbuildignore
+
+# C++ code
+/src/*.o
+/src/*.dll
+/src/*.so
+/src/*.a
+

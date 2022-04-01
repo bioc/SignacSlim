@@ -14,6 +14,12 @@ SingleFeatureMatrix(
 )
 }
 \arguments{
+\item{fragment}{A list of \code{\link{Fragment}} objects. Note that if
+setting the \code{cells} parameter, the requested cells should be present in
+the supplied \code{Fragment} objects. However, if the cells information in
+the fragment object is not set (\code{Cells(fragments)} is \code{NULL}), then
+the fragment object will still be searched.}
+
 \item{features}{A GRanges object containing a set of genomic intervals.
 These will form the rows of the matrix, with each entry recording the number
 of unique reads falling in the genomic region for each cell.}

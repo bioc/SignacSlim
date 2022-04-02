@@ -31,6 +31,9 @@ counts in the group.}
 \item{scale.factor}{Scaling factor to use. If NULL (default), will use the
 median normalization factor for all the groups.}
 }
+\value{
+ApplyMatrixByGroup
+}
 \description{
 Perform colSums on a cut matrix with cells in the rows
 and position in the columns, for each group of cells

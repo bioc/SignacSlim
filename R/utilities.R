@@ -1,10 +1,12 @@
 #' Get vector of cell names and associated identity
+#'
 #' @param object A Seurat object
 #' @param group.by Identity class to group cells by
 #' @param idents which identities to include
+#' @return Returns a named vector
+#'
 #' @importFrom SeuratObject Idents
 #' @importFrom RcppEigen RcppEigen.package.skeleton
-#' @return Returns a named vector
 GetGroups <- function(
         object,
         group.by,
@@ -99,7 +101,6 @@ GetFragmentData <- function(object, slot = "path") {
 #' @importMethodsFrom GenomicRanges intersect
 #' @importFrom Rsamtools TabixFile seqnamesTabix
 #' @importFrom fastmatch fmatch
-#'
 #'
 SingleFeatureMatrix <- function(
         fragment,
@@ -346,6 +347,7 @@ PartialMatrix <- function(tabix, regions, sep = c("-", "-"), cells = NULL) {
 #' @export
 #' @concept utilities
 #' @return Returns a list
+#'
 #' @examples
 #' fpath <- system.file("extdata", "fragments.tsv.gz", package="SignacSlim")
 #' GetCellsInRegion(tabix = fpath, region = "chr1-10245-762629")
@@ -1127,6 +1129,8 @@ TabixOutputToDataFrame <- function(reads, record.ident = TRUE) {
 #' @param normalize Perform sequencing depth and cell count normalization
 #' @param scale.factor Scaling factor to use. If NULL (default), will use the
 #' median normalization factor for all the groups.
+#'
+#' @return ApplyMatrixByGroup
 #'
 #' @importFrom stats median
 ApplyMatrixByGroup <- function(

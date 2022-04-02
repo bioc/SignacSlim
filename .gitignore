@@ -27,3 +27,5 @@ vignettes/*.pdf
 /src/*.so
 /src/*.a
 
+# other files
+vignettes/SignacSlim-Introduction.R

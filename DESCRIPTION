@@ -1,7 +1,7 @@
 Package: SignacSlim
 Type: Package
 Title: The slim version of signac
-Version: 0.99.2
+Version: 0.99.3
 Authors@R: c(
   person(given = 'Wei', family = 'Zhang', email = 'w-zhang16@tsinghua.org.cn', role = c('aut', 'cre'))
   )
